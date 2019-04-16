@@ -9,7 +9,7 @@ const reducer = (state = initialState, action) => {
     case actionTypes.ASK_Q:
       return {
         ...state,
-        channels: state.questions.concat(action.payload)
+        questions: state.questions.concat(action.payload)
       };
     default:
       return state;
