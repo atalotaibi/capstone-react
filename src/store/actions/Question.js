@@ -19,3 +19,18 @@ export const askQ = Q => {
     }
   };
 };
+
+export const fetchQ = () => {
+  return async dispatch => {
+    try {
+      const res = await instance.get("questions/");
+      const questions = res.data;
+      dispatch({
+        type: actionTypes.FETCH_Q,
+        payload: questions
+      });
+    } catch (err) {
+      console.error(err);
+    }
+  };
+};
