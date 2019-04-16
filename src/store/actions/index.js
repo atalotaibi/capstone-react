@@ -1,0 +1,1 @@
+export { askQ } from "./Question";
