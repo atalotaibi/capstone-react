@@ -11,6 +11,13 @@ const reducer = (state = initialState, action) => {
         ...state,
         questions: state.questions.concat(action.payload)
       };
+
+    case actionTypes.FETCH_Q:
+      return {
+        ...state,
+        questions: action.payload
+      };
+
     default:
       return state;
   }
