@@ -3,12 +3,12 @@ import * as actionTypes from "./actionTypes";
 import axios from "axios";
 
 const instance = axios.create({
-  baseURL: "http://localhost:3000/"
+  baseURL: "http://127.0.0.1:8000/api/"
 });
 export const askQ = Q => {
   return async dispatch => {
     try {
-      const res = await instance.post("/ask/", Q);
+      const res = await instance.post("ask/", Q);
       const newQ = res.data;
       dispatch({
         type: actionTypes.ASK_Q,
@@ -23,14 +23,14 @@ export const askQ = Q => {
 export const fetchQ = () => {
   return async dispatch => {
     try {
-      const res = await instance.get("questions/");
+      const res = await instance.get("question/list/");
       const questions = res.data;
       dispatch({
         type: actionTypes.FETCH_Q,
         payload: questions
       });
     } catch (err) {
-      console.error(err);
+      console.error("ERROR: ", err);
     }
   };
 };
