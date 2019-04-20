@@ -1,6 +1,7 @@
 import React, { Component } from "react";
-import logo from "./logo.svg";
 import "./App.css";
+import Qlist from "./components/Qlist";
+import QForm from "./Components/QForm";
 
 import {
   Switch,
@@ -28,8 +29,9 @@ class App extends Component {
 
   render() {
     return (
+
       <div>
-        <div>{/* <Navbar /> */}</div>
+        
         <div className="container-fluid my-4">
           <BrowserRouter>
             <Route exact path="/signup" component={RegistrationForm} />
@@ -37,6 +39,17 @@ class App extends Component {
           </BrowserRouter>
         </div>
       </div>
+
+
+      <div className="App">
+        <Qlist />
+
+      <div id="app" className="container">
+        <QForm />
+
+
+      </div>
+       </div>
     );
   }
 }
