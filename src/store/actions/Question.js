@@ -3,14 +3,11 @@ import * as actionTypes from "./actionTypes";
 import axios from "axios";
 
 const instance = axios.create({
-
   baseURL: "http://127.0.0.1:8000/api/"
-
 });
 export const askQ = Q => {
   return async dispatch => {
     try {
-
       const res = await instance.post("question/create/", Q);
 
       const newQ = res.data;
@@ -38,7 +35,6 @@ export const fetchQ = () => {
     }
   };
 };
-
 
 export const fetchAnswers = questionID => async dispatch => {
   console.log("question.js fetch answer");
@@ -70,11 +66,12 @@ export const sendAnswer = (answer, questionID, reset = () => {}) => {
       console.error(error);
       if (error.response) console.error(error.response.data);
     }
+  };
+};
 
 export const filterQuestions = query => {
   return {
     type: actionTypes.QUESTION_FILTER,
     payload: query
-
   };
 };

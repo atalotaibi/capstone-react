@@ -19,7 +19,6 @@ import {
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.min.js";
 
-
 // Actions
 import * as actionCreators from "./store/actions";
 import { connect } from "react-redux";
@@ -35,9 +34,7 @@ class App extends Component {
 
   render() {
     return (
-
       <div>
-        
         <div className="container-fluid my-4">
           <BrowserRouter>
             <Route exact path="/signup" component={RegistrationForm} />
@@ -46,20 +43,14 @@ class App extends Component {
         </div>
       </div>
 
-
-      <div className="App">
-        <Search />
-        {/* <SearchBar /> */}
-        <Qlist />
-
-      <div id="app" className="container">
-
-        {/* <QForm /> */}
-        <QAnswers />
-        <AnswerForm />
-
-      </div>
-       </div>
+      //  {/* <div className="App">
+      //  <Search />
+      //   <SearchBar />
+      //    <Qlist />
+      //    <QForm />
+      //    <QAnswers />
+      //    <AnswerForm />
+      //    </div > */}
     );
   }
 }
