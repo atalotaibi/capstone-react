@@ -1,10 +1,11 @@
 import * as actionTypes from "../actions/actionTypes";
 
 const initialState = {
-  questions: []
+  questions: [],
+  answers: []
 };
 
-const reducer = (state = initialState, action) => {
+const questionsReducer = (state = initialState, action) => {
   switch (action.type) {
     case actionTypes.ASK_Q:
       return {
@@ -18,9 +19,15 @@ const reducer = (state = initialState, action) => {
         questions: action.payload
       };
 
+    case actionTypes.FETCH_ANSWERS:
+      return {
+        ...state,
+        answers: action.payload
+      };
+
     default:
       return state;
   }
 };
 
-export default reducer;
+export default questionsReducer;

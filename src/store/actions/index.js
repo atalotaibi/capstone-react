@@ -1,2 +1,1 @@
-export { askQ } from "./Question";
-export { fetchQ } from "./Question";
+export { askQ, fetchQ, fetchAnswers, sendAnswer } from "./Question";
