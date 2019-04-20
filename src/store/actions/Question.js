@@ -3,12 +3,16 @@ import * as actionTypes from "./actionTypes";
 import axios from "axios";
 
 const instance = axios.create({
+
   baseURL: "http://127.0.0.1:8000/api/"
+
 });
 export const askQ = Q => {
   return async dispatch => {
     try {
-      const res = await instance.post("ask/", Q);
+
+      const res = await instance.post("question/create/", Q);
+
       const newQ = res.data;
       dispatch({
         type: actionTypes.ASK_Q,
