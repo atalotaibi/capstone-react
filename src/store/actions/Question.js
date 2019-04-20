@@ -38,3 +38,10 @@ export const fetchQ = () => {
     }
   };
 };
+
+export const filterQuestions = query => {
+  return {
+    type: actionTypes.QUESTION_FILTER,
+    payload: query
+  };
+};

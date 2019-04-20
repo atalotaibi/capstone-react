@@ -5,12 +5,30 @@ import { connect } from "react-redux";
 import Qcards from "./Qcards";
 
 class Qlist extends Component {
+  // state = {
+  //   query: ""
+  // };
+  // updateQuery = e => {
+  //   this.setState({ query: e.target.value });
+  // };
+
   componentDidMount() {
     this.props.fetchQ();
   }
 
+  //Use state to copy the questions from the central state
+  //Filter on the internal state
+
   render() {
-    const Qlist = this.props.questions.map(question => (
+    // let filteredQuestions = this.props.questions;
+
+    // if (this.state.query) {
+    //   filteredQuestions = this.props.questions.filter(question =>
+    //     question.q_text.toLowerCase().includes(this.state.query.toLowerCase())
+    //   );
+    // }
+
+    const Qlist = this.props.filteredQuestions.map(question => (
       <Qcards question={question} key={question.q_text} />
     ));
 
@@ -19,9 +37,10 @@ class Qlist extends Component {
 }
 const mapStateToProps = state => {
   return {
-    questions: state.questions.questions
+    filteredQuestions: state.questions.filteredQuestions
   };
 };
+
 const mapDispatchToProps = dispatch => {
   return {
     fetchQ: () => dispatch(actionCreators.fetchQ())

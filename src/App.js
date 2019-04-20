@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import "./App.css";
 import Qlist from "./components/Qlist";
+
+import Search from "./components/Search";
+
 import QForm from "./Components/QForm";
 
 import {
@@ -13,6 +16,7 @@ import {
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.min.js";
+
 
 // Actions
 import * as actionCreators from "./store/actions";
@@ -42,6 +46,8 @@ class App extends Component {
 
 
       <div className="App">
+        <Search />
+        {/* <SearchBar /> */}
         <Qlist />
 
       <div id="app" className="container">
