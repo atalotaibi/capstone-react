@@ -1,1 +1,9 @@
-export { askQ, fetchQ, fetchAnswers, sendAnswer } from "./Question";
+
+export { askQ, fetchQ, fetchAnswers, sendAnswer, filterQuestions } from "./Question";
+export { setErrors } from "./errorsActions";
+export { login, logout, signup, checkForExpiredToken } from "./authentication";
+
+
+
+
+
