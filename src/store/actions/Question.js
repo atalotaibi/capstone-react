@@ -39,9 +39,42 @@ export const fetchQ = () => {
   };
 };
 
+
+export const fetchAnswers = questionID => async dispatch => {
+  console.log("question.js fetch answer");
+  try {
+    const res = await instance.get(`${questionID}/`);
+    const question = res.data;
+    console.log(res.data);
+
+    dispatch({
+      type: actionTypes.FETCH_ANSWERS,
+      payload: question
+    });
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+export const sendAnswer = (answer, questionID, reset = () => {}) => {
+  answer = {
+    ...answer
+  };
+
+  return async dispatch => {
+    try {
+      reset();
+      await instance.post(`${questionID}/send`, answer);
+    } catch (error) {
+      reset(answer.answer);
+      console.error(error);
+      if (error.response) console.error(error.response.data);
+    }
+
 export const filterQuestions = query => {
   return {
     type: actionTypes.QUESTION_FILTER,
     payload: query
+
   };
 };

@@ -5,6 +5,8 @@ import Qlist from "./components/Qlist";
 import Search from "./components/Search";
 
 import QForm from "./Components/QForm";
+import QAnswers from "./Components/QAnswers";
+import AnswerForm from "./Components/AnswerForm";
 
 import {
   Switch,
@@ -51,8 +53,10 @@ class App extends Component {
         <Qlist />
 
       <div id="app" className="container">
-        <QForm />
 
+        {/* <QForm /> */}
+        <QAnswers />
+        <AnswerForm />
 
       </div>
        </div>
