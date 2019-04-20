@@ -13,16 +13,6 @@ class QAnswers extends Component {
     console.log("answers: ", this.props.answers);
   }
 
-  //   componentDidUpdate(prevProps, prevState) {
-  //     let questoin = this.props.questoin;
-  //     if (
-  //       this.props.match.params.questoinID !== prevProps.match.params.questoinID
-  //     ) {
-  //       this.props.reset();
-  //       this.props.fetchAnswers(this.props.match.params.questoinID);
-  //     }
-  //   }
-
   getView = () => {
     let answer = "";
 

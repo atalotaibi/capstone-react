@@ -48,7 +48,7 @@ class App extends Component {
         {/* <SearchBar /> */}
         {/* <Qlist /> */}
         {/* <QForm /> */}
-        {/* <QAnswers /> */}
+        <QAnswers />
         {/* <AnswerForm /> */}
       </div>
     );
