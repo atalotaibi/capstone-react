@@ -15,7 +15,7 @@ class QForm extends Component {
     console.log("[QForm.js handlsubmit]");
     this.props.askQ(this.state);
     this.setState({
-      question: "",
+      q_text: "",
       major: ""
     });
   };
@@ -39,6 +39,7 @@ class QForm extends Component {
             multiple="multiple"
             className="form-control"
           >
+            <option value="1">1</option>
             <option value="2">2</option>
             <option value="3">3</option>
             <option value="4">4</option>

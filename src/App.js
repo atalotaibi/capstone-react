@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import "./App.css";
-import Qlist from "./components/Qlist";
+import Qlist from "./Components/Qlist";
 
-import Search from "./components/Search";
+import Search from "./Components/Search";
 
 import QForm from "./Components/QForm";
 import QAnswers from "./Components/QAnswers";
@@ -34,23 +34,23 @@ class App extends Component {
 
   render() {
     return (
-      <div>
-        <div className="container-fluid my-4">
-          <BrowserRouter>
-            <Route exact path="/signup" component={RegistrationForm} />
-            <Route exact path="/login" component={LoginForm} />
-          </BrowserRouter>
-        </div>
-      </div>
+      // <div>
+      //   <div className="container-fluid my-4">
+      //     <BrowserRouter>
+      //       <Route exact path="/signup" component={RegistrationForm} />
+      //       <Route exact path="/login" component={LoginForm} />
+      //     </BrowserRouter>
+      //   </div>
+      // </div>
 
-      //  {/* <div className="App">
-      //  <Search />
-      //   <SearchBar />
-      //    <Qlist />
-      //    <QForm />
-      //    <QAnswers />
-      //    <AnswerForm />
-      //    </div > */}
+      <div className="App">
+        {/* <Search /> */}
+        {/* <SearchBar /> */}
+        {/* <Qlist /> */}
+        {/* <QForm /> */}
+        {/* <QAnswers /> */}
+        {/* <AnswerForm /> */}
+      </div>
     );
   }
 }
