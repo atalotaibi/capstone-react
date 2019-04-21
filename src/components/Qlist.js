@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import * as actionCreators from "../store/actions";
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 
 import Qcards from "./Qcards";
 

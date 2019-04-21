@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 
 class Qcards extends Component {
   render() {
@@ -12,7 +13,9 @@ class Qcards extends Component {
               With supporting text below as a natural lead-in to additional
               content.
             </p>
-            <a className="btn btn-primary">Button</a>
+            <Link to="/Qlist">
+              <button type="submit">post</button>
+            </Link>
           </div>
         </div>
       </div>
