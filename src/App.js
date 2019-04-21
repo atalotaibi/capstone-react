@@ -44,11 +44,11 @@ class App extends Component {
       // </div>
 
       <div className="App">
-        {/* <Search /> */}
+        <Search />
         {/* <SearchBar /> */}
-        {/* <Qlist /> */}
+        <Qlist />
         {/* <QForm /> */}
-        <QAnswers />
+        {/* <QAnswers /> */}
         {/* <AnswerForm /> */}
       </div>
     );

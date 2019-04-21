@@ -8,8 +8,6 @@ const initialState = {
 };
 
 const questionsReducer = (state = initialState, action) => {
-
-
   switch (action.type) {
     case actionTypes.ASK_Q:
       return {
@@ -30,8 +28,6 @@ const questionsReducer = (state = initialState, action) => {
       return {
         ...state,
         answers: action.payload
-
-
       };
     case actionTypes.QUESTION_FILTER:
       return {
@@ -39,7 +35,13 @@ const questionsReducer = (state = initialState, action) => {
         filteredQuestions: state.questions.filter(question => {
           return `${question.q_text}`.toLowerCase().includes(action.payload);
         })
-
+      };
+    case actionTypes.DELETE_QUESTION:
+      return {
+        ...state,
+        filteredQuestions: state.questions.filter(
+          questionID => questionID !== action.payload
+        )
       };
 
     default:
@@ -47,6 +49,4 @@ const questionsReducer = (state = initialState, action) => {
   }
 };
 
-
 export default questionsReducer;
-

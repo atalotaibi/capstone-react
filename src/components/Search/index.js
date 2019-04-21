@@ -5,6 +5,7 @@ import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import { connect } from "react-redux";
 
 import * as actionCreators from "../../store/actions";
+import Qlist from "../Qlist";
 
 class Search extends Component {
   handleChange = e => {
