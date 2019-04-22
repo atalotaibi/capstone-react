@@ -5,7 +5,9 @@ class Answer extends Component {
     const answer = this.props.answer;
     return (
       <div>
-        <h1>{renderHTML(answer.a_text)}</h1>
+
+        <h4>{renderHTML(answer.a_text)}</h4>
+
       </div>
     );
   }

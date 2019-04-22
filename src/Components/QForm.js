@@ -3,13 +3,17 @@ import * as actionCreators from "../store/actions";
 import { connect } from "react-redux";
 import { Qlist } from "./Qlist";
 import { Link } from "react-router-dom";
+import ReactQuill from "react-quill";
+import "react-quill/dist/quill.snow.css";
 
 class QForm extends Component {
   state = {
     q_text: "",
     major: ""
   };
-  textChangeHandler = e => this.setState({ [e.target.name]: e.target.value });
+  textChangeHandler = e => this.setState({ q_text: e });
+
+  majorChangeHandler = e => this.setState({ [e.target.name]: e.target.value });
 
   handleSubmit = event => {
     event.preventDefault();
@@ -37,8 +41,7 @@ class QForm extends Component {
             type="select"
             placeholder="select"
             name="major"
-            onChange={this.textChangeHandler}
-            multiple="multiple"
+            onChange={this.majorChangeHandler}
             className="form-control"
           >
             <option value="1">1</option>
@@ -48,13 +51,22 @@ class QForm extends Component {
           </select>
         </div>
         <div className="form-group">
-          <input
+          <ReactQuill
+            modules={QForm.modules}
+            formats={QForm.formats}
+            name="q_text"
+            placeholder="Body"
+            onChange={this.textChangeHandler}
+          />
+          {/* <input
             className="form-control"
             type="text"
             placeholder="Ask"
             name="q_text"
             onChange={this.textChangeHandler}
-          />
+          /> */}
+
+          <button type="submit">post</button>
 
           {/* <Link to="/Qlist">
             <button type="submit">post</button>
@@ -64,6 +76,35 @@ class QForm extends Component {
     );
   }
 }
+
+QForm.modules = {
+  toolbar: [
+    [{ header: "1" }, { header: "2" }, { font: [] }],
+    [{ size: [] }],
+    ["bold", "italic", "underline", "strike", "blockquote"],
+    [{ list: "ordered" }, { list: "bullet" }],
+    ["link", "image", "video"],
+    ["clean"],
+    ["code-block"]
+  ]
+};
+
+QForm.formats = [
+  "header",
+  "font",
+  "size",
+  "bold",
+  "italic",
+  "underline",
+  "strike",
+  "blockquote",
+  "list",
+  "bullet",
+  "link",
+  "image",
+  "video",
+  "code-block"
+];
 
 const mapDispatchToProps = dispatch => {
   return {
