@@ -4,11 +4,8 @@ export {
   fetchAnswers,
   sendAnswer,
   filterQuestions,
-
-  deleteQuestion
-
+  deleteQuestion,
   filterQuestionsByMajor
-
 } from "./Question";
 export { setErrors } from "./errorsActions";
 export { login, logout, signup, checkForExpiredToken } from "./authentication";
