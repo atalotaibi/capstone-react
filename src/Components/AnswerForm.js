@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import * as actionCreators from "../store/actions";
 import { Link } from "react-router-dom";
+import ReactQuill from "react-quill";
+import "react-quill/dist/quill.snow.css";
 
 class AnswerForm extends Component {
   state = { a_text: "" };
@@ -21,9 +23,18 @@ class AnswerForm extends Component {
     return (
       <div>
         <form className="col-11 mx-auto" onSubmit={this.submitAnswer}>
-          <Link to="/Answer">
-            <button>
-              <textarea
+          <ReactQuill
+            modules={AnswerForm.modules}
+            formats={AnswerForm.formats}
+            value={a_text}
+            rows="4"
+            placeholder="Body"
+            onChange={e => this.setState({ a_text: e })}
+            onKeyUp={e => {
+              if (!e.shiftKey && e.key === "Enter") this.submitAnswer(e);
+            }}
+          />
+          {/* <textarea
                 className="form-control"
                 rows="4"
                 placeholder="Type your answer here"
@@ -32,14 +43,44 @@ class AnswerForm extends Component {
                 onKeyUp={e => {
                   if (!e.shiftKey && e.key === "Enter") this.submitAnswer(e);
                 }}
-              />
-            </button>
+              /> */}
+          <Link to="/Answer">
+            <button className="btn btn-primary">Post</button>
           </Link>
         </form>
       </div>
     );
   }
 }
+
+AnswerForm.modules = {
+  toolbar: [
+    [{ header: "1" }, { header: "2" }, { font: [] }],
+    [{ size: [] }],
+    ["bold", "italic", "underline", "strike", "blockquote"],
+    [{ list: "ordered" }, { list: "bullet" }],
+    ["link", "image", "video"],
+    ["clean"],
+    ["code-block"]
+  ]
+};
+
+AnswerForm.formats = [
+  "header",
+  "font",
+  "size",
+  "bold",
+  "italic",
+  "underline",
+  "strike",
+  "blockquote",
+  "list",
+  "bullet",
+  "link",
+  "image",
+  "video",
+  "code-block"
+];
 
 const mapDispatchToProps = dispatch => {
   return {
