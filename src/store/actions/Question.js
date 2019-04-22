@@ -38,7 +38,6 @@ export const fetchQ = () => {
 };
 
 export const fetchAnswers = questionID => async dispatch => {
-  console.log("question.js fetch answer");
   try {
     const res = await instance.get(`${questionID}/`);
     const question = res.data;
@@ -74,5 +73,40 @@ export const filterQuestions = query => {
   return {
     type: actionTypes.QUESTION_FILTER,
     payload: query
+  };
+};
+
+export const deleteQuestion = questionID => {
+  return async dispatch => {
+    try {
+      const res = await instance.delete(`question/${questionID}/delete/`);
+      const deleteItem = res.data;
+      dispatch(fetchQ());
+      dispatch({
+        type: actionTypes.DELETE_QUESTION,
+        payload: questionID
+      });
+    } catch (err) {
+      console.error("Error while deleteing the cart item", err);
+    }
+  };
+};
+export const filterQuestionsByMajor = major => {
+  console.log("reducer", major);
+  return {
+    type: actionTypes.FILTER_QUESTION_BY_Major,
+    payload: major
+  };
+};
+export const filterQuestionsByAnswer = status => {
+  return {
+    type: actionTypes.FILTER_QUESTION_BY_ANSWER,
+    payload: status
+  };
+};
+export const filterQuestionsByApprove = status => {
+  return {
+    type: actionTypes.FILTER_QUESTION_BY_APPROVE,
+    payload: status
   };
 };
