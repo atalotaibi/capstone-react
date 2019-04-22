@@ -11,7 +11,9 @@ class QForm extends Component {
     q_text: "",
     major: ""
   };
-  textChangeHandler = e => this.setState({ e: e });
+  textChangeHandler = e => this.setState({ q_text: e });
+
+  majorChangeHandler = e => this.setState({ [e.target.name]: e.target.value });
 
   handleSubmit = event => {
     event.preventDefault();
@@ -39,8 +41,7 @@ class QForm extends Component {
             type="select"
             placeholder="select"
             name="major"
-            onChange={this.textChangeHandler}
-            multiple="multiple"
+            onChange={this.majorChangeHandler}
             className="form-control"
           >
             <option value="1">1</option>
