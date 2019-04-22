@@ -13,7 +13,7 @@ class RegistrationForm extends Component {
   };
   componentDidMount() {
     if (this.props.user) {
-      this.props.history.push("/welcome");
+      this.props.history.push("/Search");
     }
   }
 

@@ -4,6 +4,7 @@ import * as actionCreators from "../store/actions";
 // Components
 import Answer from "./Answer";
 import AnswerForm from "./AnswerForm";
+import { Link } from "react-router-dom";
 
 class QAnswers extends Component {
   componentDidMount() {
@@ -37,6 +38,7 @@ class QAnswers extends Component {
         </div>
         <div className="footer1">
           {/* <AnswerForm questionID={questionID} /> */}
+          <Link to="/Qlist" />
         </div>
       </div>
     );

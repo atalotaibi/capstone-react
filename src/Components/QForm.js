@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import * as actionCreators from "../store/actions";
 import { connect } from "react-redux";
+import { Qlist } from "./Qlist";
+import { Link } from "react-router-dom";
 
 class QForm extends Component {
   state = {
@@ -53,7 +55,10 @@ class QForm extends Component {
             name="q_text"
             onChange={this.textChangeHandler}
           />
-          <button type="submit">post</button>
+
+          {/* <Link to="/Qlist">
+            <button type="submit">post</button>
+          </Link> */}
         </div>
       </form>
     );
