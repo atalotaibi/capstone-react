@@ -46,7 +46,7 @@ class Search extends Component {
         </div> */}
         <div className="form-check form-check-inline">
           <input
-            class="form-check-input"
+            className="form-check-input"
             type="radio"
             name="inlineRadioOptions"
             id="inlineRadio1"
@@ -62,7 +62,7 @@ class Search extends Component {
         </div>
         <div className="form-check form-check-inline">
           <input
-            class="form-check-input"
+            className="form-check-input"
             type="radio"
             name="inlineRadioOptions"
             id="inlineRadio1"
@@ -77,7 +77,7 @@ class Search extends Component {
         </div>
         <div className="form-check form-check-inline">
           <input
-            class="form-check-input"
+            className="form-check-input"
             type="radio"
             name="inlineRadioOptions"
             id="inlineRadio1"
@@ -92,7 +92,7 @@ class Search extends Component {
         </div>
         <div className="form-check form-check-inline">
           <input
-            class="form-check-input"
+            className="form-check-input"
             type="radio"
             name="inlineRadioOptions"
             id="inlineRadio1"
@@ -107,7 +107,7 @@ class Search extends Component {
         </div>
         <div className="form-check form-check-inline">
           <input
-            class="form-check-input"
+            className="form-check-input"
             type="radio"
             name="inlineRadioOptions"
             id="inlineRadio1"
@@ -122,7 +122,7 @@ class Search extends Component {
         </div>
         <div className="form-check form-check-inline">
           <input
-            class="form-check-input"
+            className="form-check-input"
             type="radio"
             name="inlineRadioOptions"
             id="inlineRadio1"
@@ -137,7 +137,7 @@ class Search extends Component {
         </div>
         <div className="form-check form-check-inline">
           <input
-            class="form-check-input"
+            className="form-check-input"
             type="radio"
             name="inlineRadioOptions"
             id="inlineRadio1"
