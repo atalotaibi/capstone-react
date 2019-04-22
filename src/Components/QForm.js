@@ -56,9 +56,9 @@ class QForm extends Component {
             onChange={this.textChangeHandler}
           />
 
-          <Link to="/Qlist">
+          {/* <Link to="/Qlist">
             <button type="submit">post</button>
-          </Link>
+          </Link> */}
         </div>
       </form>
     );
