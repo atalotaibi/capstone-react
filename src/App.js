@@ -3,7 +3,7 @@ import "./App.css";
 import Qlist from "./Components/Qlist";
 
 import Search from "./Components/Search";
-import Home from "./Home";
+import Home from "./Components/Home";
 import QForm from "./Components/QForm";
 import QAnswers from "./Components/QAnswers";
 import AnswerForm from "./Components/AnswerForm";
