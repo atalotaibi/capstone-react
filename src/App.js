@@ -27,6 +27,8 @@ import { connect } from "react-redux";
 // import Navbar from "./Components/Navbar";
 import RegistrationForm from "./Components/Authentications/RegistrationForm";
 import LoginForm from "./Components/Authentications/LoginForm";
+import questions from "./store/reducers/questionsReducer";
+
 class App extends Component {
   componentDidMount = async () => {
     await this.props.checkForExpiredToken();
@@ -34,6 +36,7 @@ class App extends Component {
 
   render() {
     return (
+
       <div>
         <div className="container-fluid my-4">
           <Switch>
@@ -47,31 +50,61 @@ class App extends Component {
               <Route exact path="/QForm" component={QForm} />
               <Route exact path="/QAnswers" component={QAnswers} />
             </BrowserRouter>
+
           </Switch>
         </div>
       </div>
 
+      //  <div className="App">
+      //   { <Search /> }
+      // //   {/* <SearchBar /> */}
+      // //   {/* <Qlist /> */}
+      // //   {/* <QForm /> */}
+      // //   <QAnswers />
+      // //   {/* <AnswerForm /> */}
+      //  </div>
+
+      // <div>
+      //   <div className="container-fluid my-4">
+      //     <Switch>
+      //       <BrowserRouter>
+      //         <Route exact path="/signup" component={RegistrationForm} />
+      //         <Route exact path="/login" component={LoginForm} />
+      //         <Route exact path="/AnswerForm" component={AnswerForm} />
+      //         <Route exact path="/Search" component={Search} />
+      //         <Route exact path="/Qlist" component={Qlist} />
+      //         <Route exact path="/QForm" component={QForm} />
+      //         <Route exact path="/QAnswers" component={QAnswers} />
+      //       </BrowserRouter>
+      //     </Switch>
+      //   </div>
+      // </div>
+
       // {/* <div className="App">
-      //   {/* <Search /> */}
+//       <Search />
       //   {/* <SearchBar /> */}
-      //   {/* <Qlist /> */}
-      //   {/* <QForm /> */}
+      // <Qlist />
+      // <QForm />
       //   <QAnswers />
       //   {/* <AnswerForm /> */}
       // </div> */}
+
     );
   }
 }
 const mapStateToProps = state => {
   return {
     user: state.authenticationReducer.user,
-    userLoading: state.authenticationReducer.userLoading
+    userLoading: state.authenticationReducer.userLoading,
+    questions: state.questions.filteredQuestions
   };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
-    checkForExpiredToken: () => dispatch(actionCreators.checkForExpiredToken())
+    checkForExpiredToken: () => dispatch(actionCreators.checkForExpiredToken()),
+    fetchAnswers: () => dispatch(actionCreators.fetchAnswers()),
+    fetchQ: () => dispatch(actionCreators.fetchQ())
   };
 };
 
