@@ -11,7 +11,7 @@ class QForm extends Component {
     q_text: "",
     major: ""
   };
-  textChangeHandler = e => this.setState({ state: e.target.value });
+  textChangeHandler = e => this.setState({ e: e });
 
   handleSubmit = event => {
     event.preventDefault();
