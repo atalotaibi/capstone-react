@@ -17,9 +17,6 @@ class Qlist extends Component {
     this.props.fetchQ();
   }
 
-  //Use state to copy the questions from the central state
-  //Filter on the internal state
-
   render() {
     // let filteredQuestions = this.props.questions;
 

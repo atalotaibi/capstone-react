@@ -62,6 +62,15 @@ const questionsReducer = (state = initialState, action) => {
             return `${question.q_text}`.toLowerCase();
           }
         })
+
+      };
+    case actionTypes.DELETE_QUESTION:
+      return {
+        ...state,
+        filteredQuestions: state.questions.filter(
+          questionID => questionID !== action.payload
+        )
+
       };
     case actionTypes.RESET:
       console.log("reset reducer");

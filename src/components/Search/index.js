@@ -6,6 +6,7 @@ import { connect } from "react-redux";
 import Qlist from "../Qlist";
 
 import * as actionCreators from "../../store/actions";
+import Qlist from "../Qlist";
 
 class Search extends Component {
   // state = {

@@ -26,13 +26,13 @@ class QForm extends Component {
     return (
       <form onSubmit={this.handleSubmit}>
         <div className="form-group">
-          {/* <input
+          <input
             className="orm-control"
             type="select"
             placeholder="select"
             name="major"
             onChange={this.textChangeHandler}
-          /> */}
+          />
           <select
             type="select"
             placeholder="select"
