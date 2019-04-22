@@ -76,3 +76,11 @@ export const filterQuestions = query => {
     payload: query
   };
 };
+
+export const filterQuestionsByMajor = major => {
+  console.log("reducer", major);
+  return {
+    type: actionTypes.FILTER_QUESTION_BY_Major,
+    payload: major
+  };
+};

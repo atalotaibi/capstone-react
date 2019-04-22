@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import AnswerForm from "./AnswerForm";
 
 class Qcards extends Component {
   render() {
@@ -14,6 +15,7 @@ class Qcards extends Component {
               content.
             </p>
             <Link to="/Qlist">
+              <AnswerForm />
               <button type="submit">post</button>
             </Link>
           </div>

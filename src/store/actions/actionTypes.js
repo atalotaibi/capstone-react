@@ -7,3 +7,7 @@ export const FETCH_Q = "FETCH_Q";
 export const FETCH_ANSWERS = "FETCH_ANSWERS";
 
 export const QUESTION_FILTER = "QUESTION_FILTER";
+
+export const FILTER_QUESTION_BY_Major = "FILTER_QUESTION_BY_Major";
+
+export const RESET = "RESET";
