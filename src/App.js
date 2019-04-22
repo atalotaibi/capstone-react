@@ -3,7 +3,7 @@ import "./App.css";
 import Qlist from "./Components/Qlist";
 
 import Search from "./Components/Search";
-
+import Home from "./Components/Home";
 import QForm from "./Components/QForm";
 import QAnswers from "./Components/QAnswers";
 import AnswerForm from "./Components/AnswerForm";
@@ -40,14 +40,17 @@ class App extends Component {
       <div>
         <div className="container-fluid my-4">
           <Switch>
-            <Route exact path="/signup" component={RegistrationForm} />
-            <Route exact path="/login" component={LoginForm} />
-            <Route exact path="/AnswerForm" component={AnswerForm} />
-            <Route exact path="/Search" component={Search} />
-            <Route exact path="/Qlist" component={Qlist} />
-            
-            <Route exact path="/QForm" component={QForm} />
-            <Route exact path="/QAnswers" component={QAnswers} />
+            <BrowserRouter>
+              <Route exact path="/Home" component={Home} />
+              <Route exact path="/signup" component={RegistrationForm} />
+              <Route exact path="/login" component={LoginForm} />
+              <Route exact path="/AnswerForm" component={AnswerForm} />
+              <Route exact path="/Search" component={Search} />
+              <Route exact path="/Qlist" component={Qlist} />
+              <Route exact path="/QForm" component={QForm} />
+              <Route exact path="/QAnswers" component={QAnswers} />
+            </BrowserRouter>
+
           </Switch>
         </div>
       </div>
