@@ -98,3 +98,15 @@ export const filterQuestionsByMajor = major => {
     payload: major
   };
 };
+export const filterQuestionsByAnswer = status => {
+  return {
+    type: actionTypes.FILTER_QUESTION_BY_ANSWER,
+    payload: status
+  };
+};
+export const filterQuestionsByApprove = status => {
+  return {
+    type: actionTypes.FILTER_QUESTION_BY_APPROVE,
+    payload: status
+  };
+};

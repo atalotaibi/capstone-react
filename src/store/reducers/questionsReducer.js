@@ -32,7 +32,6 @@ const questionsReducer = (state = initialState, action) => {
         answers: action.payload
       };
     case actionTypes.QUESTION_FILTER:
-      // console.log(this.flag_);
       return {
         ...state,
         filteredQuestions: state.flag_
@@ -62,7 +61,38 @@ const questionsReducer = (state = initialState, action) => {
             return `${question.q_text}`.toLowerCase();
           }
         })
+      };
+    case actionTypes.FILTER_QUESTION_BY_ANSWER:
+      return {
+        ...state,
+        flag_: true,
+        filteredQuestions: state.questions.filter(question => {
+          if (question.answered.toString() === action.payload) {
+            return `${question.q_text}`.toLowerCase();
+          }
+        }),
 
+        question1: state.questions.filter(question => {
+          if (question.answered.toString() === action.payload) {
+            return `${question.q_text}`.toLowerCase();
+          }
+        })
+      };
+    case actionTypes.FILTER_QUESTION_BY_APPROVE:
+      return {
+        ...state,
+        flag_: true,
+        filteredQuestions: state.questions.filter(question => {
+          if (question.approved.toString() === action.payload) {
+            return `${question.q_text}`.toLowerCase();
+          }
+        }),
+
+        question1: state.questions.filter(question => {
+          if (question.approved.toString() === action.payload) {
+            return `${question.q_text}`.toLowerCase();
+          }
+        })
       };
     case actionTypes.DELETE_QUESTION:
       return {
@@ -70,7 +100,6 @@ const questionsReducer = (state = initialState, action) => {
         filteredQuestions: state.questions.filter(
           questionID => questionID !== action.payload
         )
-
       };
     case actionTypes.RESET:
       console.log("reset reducer");

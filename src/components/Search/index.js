@@ -90,6 +90,66 @@ class Search extends Component {
             math
           </label>
         </div>
+        <div className="form-check form-check-inline">
+          <input
+            class="form-check-input"
+            type="radio"
+            name="inlineRadioOptions"
+            id="inlineRadio1"
+            value="true"
+            onChange={event =>
+              this.props.filterQuestionsByAnswer(event.target.value)
+            }
+          />
+          <label className="form-check-label" for="inlineRadio1">
+            answered
+          </label>
+        </div>
+        <div className="form-check form-check-inline">
+          <input
+            class="form-check-input"
+            type="radio"
+            name="inlineRadioOptions"
+            id="inlineRadio1"
+            value="false"
+            onChange={event =>
+              this.props.filterQuestionsByAnswer(event.target.value)
+            }
+          />
+          <label className="form-check-label" for="inlineRadio1">
+            unanswered
+          </label>
+        </div>
+        <div className="form-check form-check-inline">
+          <input
+            class="form-check-input"
+            type="radio"
+            name="inlineRadioOptions"
+            id="inlineRadio1"
+            value="true"
+            onChange={event =>
+              this.props.filterQuestionsByApprove(event.target.value)
+            }
+          />
+          <label className="form-check-label" for="inlineRadio1">
+            approved
+          </label>
+        </div>
+        <div className="form-check form-check-inline">
+          <input
+            class="form-check-input"
+            type="radio"
+            name="inlineRadioOptions"
+            id="inlineRadio1"
+            value="false"
+            onChange={event =>
+              this.props.filterQuestionsByApprove(event.target.value)
+            }
+          />
+          <label className="form-check-label" for="inlineRadio1">
+            unapproved
+          </label>
+        </div>
 
         <div className="input-group my-3">
           <input
@@ -118,6 +178,10 @@ const mapDispatchToProps = dispatch => {
     filterQuestions: query => dispatch(actionCreators.filterQuestions(query)),
     filterQuestionsByMajor: major =>
       dispatch(actionCreators.filterQuestionsByMajor(major)),
+    filterQuestionsByAnswer: status =>
+      dispatch(actionCreators.filterQuestionsByAnswer(status)),
+    filterQuestionsByApprove: status =>
+      dispatch(actionCreators.filterQuestionsByApprove(status)),
     fetchQ: () => dispatch(actionCreators.fetchQ()),
     reset: () => dispatch({ type: "RESET" })
   };
