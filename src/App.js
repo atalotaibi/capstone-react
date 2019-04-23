@@ -28,6 +28,9 @@ import { connect } from "react-redux";
 import RegistrationForm from "./Components/Authentications/RegistrationForm";
 import LoginForm from "./Components/Authentications/LoginForm";
 import questions from "./store/reducers/questionsReducer";
+import home from "./Components/Home/home";
+import Footer from "./Components/Footer";
+import Header from "./Components/Header";
 
 class App extends Component {
   componentDidMount = async () => {
@@ -37,18 +40,18 @@ class App extends Component {
   render() {
     return (
       <div>
-        <div className="container-fluid my-4">
-          <Switch>
-            <Route exact path="/signup" component={RegistrationForm} />
-            <Route exact path="/login" component={LoginForm} />
-            <Route exact path="/AnswerForm" component={AnswerForm} />
-            <Route exact path="/Search" component={Search} />
-            <Route exact path="/Qlist" component={Qlist} />
-            {/* <Route path="/Qlist/:QuestionID" component={Qlist} /> */}
-            <Route exact path="/QForm" component={QForm} />
-            <Route exact path="/QAnswers" component={QAnswers} />
-          </Switch>
-        </div>
+        <Header />
+        <Switch>
+          <Route exact path="/Home" component={home} />
+          <Route exact path="/signup" component={RegistrationForm} />
+          <Route exact path="/login" component={LoginForm} />
+          <Route exact path="/AnswerForm" component={AnswerForm} />
+          <Route exact path="/Search" component={Search} />
+          <Route exact path="/Qlist" component={Qlist} />
+          <Route exact path="/QForm" component={QForm} />
+          <Route exact path="/QAnswers" component={QAnswers} />
+        </Switch>
+        <Footer />
       </div>
 
       //  <div className="App">
