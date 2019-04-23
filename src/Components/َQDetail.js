@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import QAnswers from "./QAnswers";
 import AnswerForm from "./AnswerForm";
-import { Link } from "react-router-dom";
 import * as actionCreators from "../store/actions";
 import { connect } from "react-redux";
 
@@ -35,16 +34,15 @@ class QDetail extends Component {
               <button type="submit">post</button>{" "}
             </Link> */}
           </div>
-          <Link to="/Qlist">
-            <div className="col-md-2">
-              <button
-                onClick={() => this.props.deleteQuestion(questoinID)}
-                className="btn btn-danger"
-              >
-                Remove
-              </button>
-            </div>
-          </Link>
+
+          <div className="col-md-2">
+            <button
+              onClick={() => this.props.deleteQuestion(questoinID)}
+              className="btn btn-danger"
+            >
+              Remove
+            </button>
+          </div>
         </div>
         <div>
           <QAnswers id={questoinID} />
