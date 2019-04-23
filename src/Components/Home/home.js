@@ -3,7 +3,6 @@ import { from } from "react-redux";
 import { connect } from "react-redux";
 import Search from "../Search";
 import Footer from "../Footer";
-import linkedin_profile_image from "../../assets/images/linkedin_profile_image.png";
 import Header from "../Header";
 
 class Home extends Component {

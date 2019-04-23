@@ -76,13 +76,6 @@ export const filterQuestions = query => {
   };
 };
 
-// export const deleteQuestion = questionID => {
-//   return {
-//     type: actionTypes.DELETE_QUESTION,
-//     payload: questionID
-//   };
-// };
-
 export const deleteQuestion = questionID => {
   return async dispatch => {
     try {
@@ -96,5 +89,13 @@ export const deleteQuestion = questionID => {
     } catch (err) {
       console.error("Error while deleteing the cart item", err);
     }
+  };
+};
+
+export const filterQuestionsByMajor = major => {
+  console.log("reducer", major);
+  return {
+    type: actionTypes.FILTER_QUESTION_BY_Major,
+    payload: major
   };
 };

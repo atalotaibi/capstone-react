@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import * as actionCreators from "../../store/actions";
 import { Link } from "react-router-dom";
-
+import { Search } from "../Search";
 class LoginForm extends Component {
   state = {
     username: "",
@@ -10,7 +10,7 @@ class LoginForm extends Component {
   };
   componentDidMount() {
     if (this.props.user) {
-      this.props.history.push("/welcome");
+      this.props.history.push("/Search");
     }
   }
 

@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import * as actionCreators from "../store/actions";
+import { Link } from "react-router-dom";
 
 class AnswerForm extends Component {
   state = { a_text: "" };
@@ -20,16 +21,20 @@ class AnswerForm extends Component {
     return (
       <div>
         <form className="col-11 mx-auto" onSubmit={this.submitAnswer}>
-          <textarea
-            className="form-control"
-            rows="4"
-            placeholder="Type your answer here"
-            value={a_text}
-            onChange={e => this.setState({ a_text: e.target.value })}
-            onKeyUp={e => {
-              if (!e.shiftKey && e.key === "Enter") this.submitAnswer(e);
-            }}
-          />
+          <Link to="/Answer">
+            <button>
+              <textarea
+                className="form-control"
+                rows="4"
+                placeholder="Type your answer here"
+                value={a_text}
+                onChange={e => this.setState({ a_text: e.target.value })}
+                onKeyUp={e => {
+                  if (!e.shiftKey && e.key === "Enter") this.submitAnswer(e);
+                }}
+              />
+            </button>
+          </Link>
         </form>
       </div>
     );

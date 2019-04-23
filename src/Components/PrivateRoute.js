@@ -10,7 +10,7 @@ class PrivateRoute extends Component {
       <Route
         {...rest}
         render={props =>
-          user ? <Component {...props} /> : <Redirect to="/welcome" />
+          user ? <Component {...props} /> : <Redirect to="/Search" />
         }
       />
     );
