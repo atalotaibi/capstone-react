@@ -3,6 +3,8 @@ import QAnswers from "./QAnswers";
 import AnswerForm from "./AnswerForm";
 import * as actionCreators from "../store/actions";
 import { connect } from "react-redux";
+import renderHTML from "react-render-html";
+import loading from "./Loading";
 
 class QDetail extends Component {
   componentDidMount() {
@@ -25,11 +27,13 @@ class QDetail extends Component {
       <div>
         <div className="card w-75">
           <div className="card-body">
-            <h5 className="card-title">{question.q_text}</h5>
+            {/* <h4>{question.q_text}</h4> */}
+            <h4>{renderHTML(question.q_text || "")}</h4>
+            {/* <h5 className="card-title" /> */}
             <p className="card-text" />
             {/* <a className="btn btn-primary">Button</a> */}
             <p className="card-text" />{" "}
-            {/* <Link to="/Qlist">
+            {/* <Link to="/Search">
               <AnswerForm />
               <button type="submit">post</button>{" "}
             </Link> */}
@@ -37,7 +41,9 @@ class QDetail extends Component {
 
           <div className="col-md-2">
             <button
-              onClick={() => this.props.deleteQuestion(questoinID)}
+              onClick={() =>
+                this.props.deleteQuestion(questoinID, this.props.history)
+              }
               className="btn btn-danger"
             >
               Remove
@@ -47,7 +53,7 @@ class QDetail extends Component {
         <div>
           <QAnswers id={questoinID} />
         </div>
-        <div />
+
         <div>
           <AnswerForm id={questoinID} />
         </div>
@@ -63,8 +69,8 @@ const mapStateToProps = state => {
 };
 const mapDispatchToProps = dispatch => {
   return {
-    deleteQuestion: questionID =>
-      dispatch(actionCreators.deleteQuestion(questionID)),
+    deleteQuestion: (questionID, history) =>
+      dispatch(actionCreators.deleteQuestion(questionID, history)),
     fetchQDetail: questionID =>
       dispatch(actionCreators.fetchQDetail(questionID)),
     reset: () => dispatch({ type: "RESET" })

@@ -19,7 +19,7 @@ class QForm extends Component {
     event.preventDefault();
     console.log(this.state);
     console.log("[QForm.js handlsubmit]");
-    this.props.askQ(this.state);
+    this.props.askQ(this.state, this.props.history);
     this.setState({
       q_text: "",
       major: ""
@@ -30,20 +30,20 @@ class QForm extends Component {
     return (
       <form onSubmit={this.handleSubmit}>
         <div className="form-group">
-          <input
+          {/* <input
             className="orm-control"
             type="select"
             placeholder="select"
             name="major"
             onChange={this.textChangeHandler}
-          />
+          /> */}
           <select
             type="select"
-            placeholder="select"
             name="major"
             onChange={this.majorChangeHandler}
             className="form-control"
           >
+            <option selected="selected">Select The Major</option>
             <option value="1">1</option>
             <option value="2">2</option>
             <option value="3">3</option>
@@ -66,11 +66,11 @@ class QForm extends Component {
             onChange={this.textChangeHandler}
           /> */}
           <div>
-            <Link to="/Qlist">
-              <button type="submit" onClick={() => this.handleSubmit}>
-                post
-              </button>
-            </Link>
+            {/* <Link to="/Qlist"> */}
+            <button type="submit" onClick={() => this.handleSubmit}>
+              post
+            </button>
+            {/* </Link> */}
           </div>
           {/* <button type="submit">post</button> */}
         </div>
@@ -110,7 +110,8 @@ QForm.formats = [
 
 const mapDispatchToProps = dispatch => {
   return {
-    askQ: question => dispatch(actionCreators.askQ(question))
+    askQ: (question, history) =>
+      dispatch(actionCreators.askQ(question, history))
   };
 };
 
