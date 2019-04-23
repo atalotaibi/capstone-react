@@ -155,22 +155,19 @@ class Search extends Component {
           <input
             className="form-control"
             type="text"
+            placeholder="Enter your search"
             onChange={event => {
               this.props.filterQuestions(event.target.value);
             }}
           />
-          <div className="input-group-append">
-            <span className="input-group-text">
-              <FontAwesomeIcon icon={faSearch} />
+
+          <div className="AAB ">
+            <span className="AAC">
+              <Link className="AAA" to="/QForm">
+                <FontAwesomeIcon icon={faPlusSquare} />
+              </Link>
             </span>
           </div>
-          <Link to="/QForm">
-            <div className="input-group-append">
-              <span className="input-group-text">
-                <FontAwesomeIcon icon={faPlusSquare} />
-              </span>
-            </div>
-          </Link>
         </div>
         <div>
           <Qlist />
