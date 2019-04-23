@@ -110,3 +110,15 @@ export const filterQuestionsByApprove = status => {
     payload: status
   };
 };
+export const fetchQDetail = questionID => {
+  return async dispatch => {
+    try {
+      const res = await instance.get(`question/${questionID}`);
+      const question = res.data;
+      dispatch({
+        type: actionTypes.FETCH_QUESTION_DETAIL,
+        payload: question
+      });
+    } catch (error) {}
+  };
+};

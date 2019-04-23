@@ -10,9 +10,8 @@ class AnswerForm extends Component {
 
   submitAnswer = e => {
     e.preventDefault();
-    // if (this.state.a_text):
-    let questionID = "1";
-    //   sendAnswer(this.state, this.props.question.id, this.resetForm);
+    const questionID = this.props.id;
+    console.log("A2 this QDI: ", questionID);
     this.props.sendAnswer(this.state, questionID, this.resetForm);
   };
 
@@ -44,7 +43,7 @@ class AnswerForm extends Component {
                   if (!e.shiftKey && e.key === "Enter") this.submitAnswer(e);
                 }}
               /> */}
-          <Link to="/Answer">
+          <Link to={`/questions/${this.props.id}`}>
             <button className="btn btn-primary">Post</button>
           </Link>
         </form>

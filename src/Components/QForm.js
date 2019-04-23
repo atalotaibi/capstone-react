@@ -65,12 +65,14 @@ class QForm extends Component {
             name="q_text"
             onChange={this.textChangeHandler}
           /> */}
-
-          <button type="submit">post</button>
-
-          {/* <Link to="/Qlist">
-            <button type="submit">post</button>
-          </Link> */}
+          <div>
+            <Link to="/Qlist">
+              <button type="submit" onClick={() => this.handleSubmit}>
+                post
+              </button>
+            </Link>
+          </div>
+          {/* <button type="submit">post</button> */}
         </div>
       </form>
     );

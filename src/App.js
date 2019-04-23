@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./App.css";
 import Qlist from "./Components/Qlist";
+import QDetail from "./Components/َQDetail";
 
 import Search from "./Components/Search";
 import Home from "./Components/Home";
@@ -73,6 +74,7 @@ class App extends Component {
               <Route exact path="/AnswerForm" component={AnswerForm} />
               <Route exact path="/Search" component={Search} />
               <Route exact path="/Qlist" component={Qlist} />
+              <Route path="/questions/:questionID" component={QDetail} />
               <Route exact path="/QForm" component={QForm} />
               <Route exact path="/QAnswers" component={QAnswers} />
             </BrowserRouter>

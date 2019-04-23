@@ -8,10 +8,9 @@ import { Link } from "react-router-dom";
 
 class QAnswers extends Component {
   componentDidMount() {
-    // this.props.fetchAnswers(this.props.match.params.questoinID);
-    let questionID = "1";
+    const questionID = this.props.id;
+    console.log("qid in qanswers component: ", questionID);
     this.props.fetchAnswers(questionID);
-    console.log("answers: ", this.props.answers);
   }
 
   getView = () => {

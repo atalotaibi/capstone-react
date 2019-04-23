@@ -2,6 +2,7 @@ import * as actionTypes from "../actions/actionTypes";
 
 const initialState = {
   questions: [],
+  question: [],
   answers: [],
   filteredQuestions: [],
   loading: true,
@@ -24,6 +25,12 @@ const questionsReducer = (state = initialState, action) => {
         filteredQuestions: [...action.payload],
         loading: false,
         flag_: false
+      };
+
+    case actionTypes.FETCH_QUESTION_DETAIL:
+      return {
+        ...state,
+        question: action.payload
       };
 
     case actionTypes.FETCH_ANSWERS:
@@ -106,6 +113,7 @@ const questionsReducer = (state = initialState, action) => {
       return {
         ...state,
         questions: [],
+        queston: [],
         filteredQuestions: []
       };
     default:

@@ -7,7 +7,8 @@ export {
   deleteQuestion,
   filterQuestionsByMajor,
   filterQuestionsByAnswer,
-  filterQuestionsByApprove
+  filterQuestionsByApprove,
+  fetchQDetail
 } from "./Question";
 export { setErrors } from "./errorsActions";
 export { login, logout, signup, checkForExpiredToken } from "./authentication";
