@@ -772,6 +772,11 @@
   resolved "https://registry.yarnpkg.com/@fortawesome/fontawesome-common-types/-/fontawesome-common-types-0.2.17.tgz#d8c36e6f6f3b3415fa1f83eaffe4f41bd313715c"
   integrity sha512-DEYsEb/iiGVoMPQGjhG2uOylLVuMzTxOxysClkabZ5n80Q3oFDWGnshCLKvOvKoeClsgmKhWVrnnqvsMI1cAbw==
 
+"@fortawesome/fontawesome-free@5.8.1":
+  version "5.8.1"
+  resolved "https://registry.yarnpkg.com/@fortawesome/fontawesome-free/-/fontawesome-free-5.8.1.tgz#cbafbfe8894c4e3e3c3a9da6774e249ac1f2da8b"
+  integrity sha512-GJtx6e55qLEOy2gPOsok2lohjpdWNGrYGtQx0FFT/++K4SYx+Z8LlPHdQBaFzKEwH5IbBB4fNgb//uyZjgYXoA==
+
 "@fortawesome/fontawesome-svg-core@^1.2.17":
   version "1.2.17"
   resolved "https://registry.yarnpkg.com/@fortawesome/fontawesome-svg-core/-/fontawesome-svg-core-1.2.17.tgz#8fce4402e824ebe99a04b1949d56d696eeae2e6d"
@@ -1872,7 +1877,12 @@ boolbase@^1.0.0, boolbase@~1.0.0:
   resolved "https://registry.yarnpkg.com/boolbase/-/boolbase-1.0.0.tgz#68dff5fbe60c51eb37725ea9e3ed310dcc1e776e"
   integrity sha1-aN/1++YMUes3cl6p4+0xDcwed24=
 
-bootstrap@^4.3.1:
+bootstrap@4.2.1:
+  version "4.2.1"
+  resolved "https://registry.yarnpkg.com/bootstrap/-/bootstrap-4.2.1.tgz#8f8bdca024dbf0e8644da32e918c8a03a90a5757"
+  integrity sha512-tt/7vIv3Gm2mnd/WeDx36nfGGHleil0Wg8IeB7eMrVkY0fZ5iTaBisSh8oNANc2IBsCc6vCgCNTIM/IEN0+50Q==
+
+bootstrap@4.3.1, bootstrap@^4.3.1:
   version "4.3.1"
   resolved "https://registry.yarnpkg.com/bootstrap/-/bootstrap-4.3.1.tgz#280ca8f610504d99d7b6b4bfc4b68cec601704ac"
   integrity sha512-rXqOmH1VilAt2DyPzluTi2blhk17bO7ef+zLLPlWvG494pDxcM234pJ8wTc/6R40UWizAIIMgxjvxZg5kmsbag==
@@ -5685,6 +5695,11 @@ joi@^11.1.1:
     isemail "3.x.x"
     topo "2.x.x"
 
+jquery@3.3.1:
+  version "3.3.1"
+  resolved "https://registry.yarnpkg.com/jquery/-/jquery-3.3.1.tgz#958ce29e81c9790f31be7792df5d4d95fc57fbca"
+  integrity sha512-Ubldcmxp5np52/ENotGxlLe6aGMvmF4R8S6tZjsP6Knsaxd/xp3Zrh50cG93lR6nPXyUFwzN3ZSOQI0wRJNdGg==
+
 jquery@^3.4.0:
   version "3.4.0"
   resolved "https://registry.yarnpkg.com/jquery/-/jquery-3.4.0.tgz#8de513fa0fa4b2c7d2e48a530e26f0596936efdf"
@@ -9300,6 +9315,23 @@ stack-utils@^1.0.1:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/stack-utils/-/stack-utils-1.0.2.tgz#33eba3897788558bebfc2db059dc158ec36cebb8"
   integrity sha512-MTX+MeG5U994cazkjd/9KNAapsHnibjMLnfXodlkXw76JEea0UiNzrqidzo1emMwk7w5Qhc9jd4Bn9TBb1MFwA==
+
+startbootstrap-coming-soon@^5.0.4:
+  version "5.0.4"
+  resolved "https://registry.yarnpkg.com/startbootstrap-coming-soon/-/startbootstrap-coming-soon-5.0.4.tgz#d4616fab9a37557fd2d2e5aa70d5d4f9776dc502"
+  integrity sha512-0puBd17rnrn9JAo3NY15VTU4OwysUaJLgX3uQVnlWW4p/iXzkgqm20AGi+fbBvRVLMPXlOAC8SPf4x+Y65dAyw==
+  dependencies:
+    "@fortawesome/fontawesome-free" "5.8.1"
+    bootstrap "4.3.1"
+    jquery "3.3.1"
+
+startbootstrap-full-width-pics@^4.1.2:
+  version "4.1.2"
+  resolved "https://registry.yarnpkg.com/startbootstrap-full-width-pics/-/startbootstrap-full-width-pics-4.1.2.tgz#79b0b5c529d34441bf348f80f2f3fcfe97975117"
+  integrity sha512-ma4eTx2YKVDuFOyqKzno7nWxAZDPvhw0tIp8XBMp/HSdxdwoVaJwtfC4DMxYD37bD8htXmcsXP1a0inBEYqGOw==
+  dependencies:
+    bootstrap "4.2.1"
+    jquery "3.3.1"
 
 static-extend@^0.1.1:
   version "0.1.2"

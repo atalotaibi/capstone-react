@@ -50,7 +50,7 @@ export const login = (userData, history) => {
       dispatch(setCurrentUser(decodedUser));
       history.push("Search");
     } catch (error) {
-      console.error(error.response.data);
+      // console.error(error.response.data);
       dispatch({
         type: actionTypes.SET_ERRORS,
         payload: error.response.data

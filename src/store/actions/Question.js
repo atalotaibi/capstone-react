@@ -83,7 +83,9 @@ export const filterQuestions = query => {
   };
 };
 
+
 export const deleteQuestion = (questionID, history) => {
+
   return async dispatch => {
     try {
       const res = await instance.delete(`question/${questionID}/delete/`);
@@ -99,11 +101,13 @@ export const deleteQuestion = (questionID, history) => {
     }
   };
 };
+
 export const filterQuestionsByMajor = major => {
   console.log("reducer", major);
   return {
     type: actionTypes.FILTER_QUESTION_BY_Major,
     payload: major
+
   };
 };
 export const filterQuestionsByAnswer = status => {
@@ -128,5 +132,6 @@ export const fetchQDetail = questionID => {
         payload: question
       });
     } catch (error) {}
+
   };
 };
