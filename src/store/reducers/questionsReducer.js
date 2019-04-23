@@ -2,7 +2,7 @@ import * as actionTypes from "../actions/actionTypes";
 
 const initialState = {
   questions: [],
-  question: [],
+  question: {},
   answers: [],
   filteredQuestions: [],
   loading: true,
@@ -108,12 +108,17 @@ const questionsReducer = (state = initialState, action) => {
           questionID => questionID !== action.payload
         )
       };
+    case actionTypes.SEND_ANSWERS:
+      return {
+        ...state,
+        answers: state.answers.concat(action.payload)
+      };
     case actionTypes.RESET:
       console.log("reset reducer");
       return {
         ...state,
         questions: [],
-        queston: [],
+        question: [],
         filteredQuestions: []
       };
     default:

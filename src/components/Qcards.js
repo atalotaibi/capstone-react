@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import AnswerForm from "./AnswerForm";
+import renderHTML from "react-render-html";
 
 import * as actionCreators from "../store/actions";
 import { connect } from "react-redux";
@@ -12,7 +13,8 @@ class Qcards extends Component {
         <div className="card w-75">
           <div className="card-body">
             <Link to={`/questions/${question.id}`}>
-              <h5 className="card-title">{question.q_text}</h5>
+              <h4>{renderHTML(question.q_text)}</h4>
+              {/* <h5 className="card-title">{renderHTML(question.q_text)}</h5> */}
 
               <p className="card-text" />
             </Link>
