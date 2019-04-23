@@ -83,8 +83,8 @@ class RegistrationForm extends Component {
               />
             </div>
             <input
-              className="btn btn-danger btn-block"
-              style={{ color: "#FFF", backgroundColor: "#fe687b" }}
+              className="btn btn-primery btn-block"
+              style={{ color: "#FFF", backgroundColor: "#696969" }}
               type="submit"
               value={type.replace(/^\w/, c => c.toUpperCase())}
             />
