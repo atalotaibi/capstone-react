@@ -4,11 +4,11 @@ export {
   fetchAnswers,
   sendAnswer,
   filterQuestions,
-
-  deleteQuestion
-
-  filterQuestionsByMajor
-
+  deleteQuestion,
+  filterQuestionsByMajor,
+  filterQuestionsByAnswer,
+  filterQuestionsByApprove,
+  fetchQDetail
 } from "./Question";
 export { setErrors } from "./errorsActions";
 export { login, logout, signup, checkForExpiredToken } from "./authentication";

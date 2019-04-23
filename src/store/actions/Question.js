@@ -5,7 +5,7 @@ import axios from "axios";
 const instance = axios.create({
   baseURL: "http://127.0.0.1:8000/api/"
 });
-export const askQ = Q => {
+export const askQ = (Q, history) => {
   console.log("action works");
   return async dispatch => {
     try {
@@ -16,6 +16,7 @@ export const askQ = Q => {
         type: actionTypes.ASK_Q,
         payload: newQ
       });
+      history.push("/Search");
     } catch (error) {
       console.error(error.response.data);
     }
@@ -60,7 +61,13 @@ export const sendAnswer = (answer, questionID, reset = () => {}) => {
   return async dispatch => {
     try {
       reset();
-      await instance.post(`${questionID}/send`, answer);
+      const res = await instance.post(`${questionID}/send`, answer);
+      const answer_ = res.data;
+
+      dispatch({
+        type: actionTypes.SEND_ANSWERS,
+        payload: answer_
+      });
     } catch (error) {
       reset(answer.answer);
       console.error(error);
@@ -76,7 +83,9 @@ export const filterQuestions = query => {
   };
 };
 
-export const deleteQuestion = questionID => {
+
+export const deleteQuestion = (questionID, history) => {
+
   return async dispatch => {
     try {
       const res = await instance.delete(`question/${questionID}/delete/`);
@@ -86,6 +95,7 @@ export const deleteQuestion = questionID => {
         type: actionTypes.DELETE_QUESTION,
         payload: questionID
       });
+      history.push("/Search");
     } catch (err) {
       console.error("Error while deleteing the cart item", err);
     }
@@ -97,5 +107,31 @@ export const filterQuestionsByMajor = major => {
   return {
     type: actionTypes.FILTER_QUESTION_BY_Major,
     payload: major
+
+  };
+};
+export const filterQuestionsByAnswer = status => {
+  return {
+    type: actionTypes.FILTER_QUESTION_BY_ANSWER,
+    payload: status
+  };
+};
+export const filterQuestionsByApprove = status => {
+  return {
+    type: actionTypes.FILTER_QUESTION_BY_APPROVE,
+    payload: status
+  };
+};
+export const fetchQDetail = questionID => {
+  return async dispatch => {
+    try {
+      const res = await instance.get(`question/${questionID}`);
+      const question = res.data;
+      dispatch({
+        type: actionTypes.FETCH_QUESTION_DETAIL,
+        payload: question
+      });
+    } catch (error) {}
+
   };
 };

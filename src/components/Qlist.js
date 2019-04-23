@@ -14,6 +14,7 @@ class Qlist extends Component {
   // };
 
   componentDidMount() {
+    this.props.reset();
     this.props.fetchQ();
   }
 
@@ -41,7 +42,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    fetchQ: () => dispatch(actionCreators.fetchQ())
+    fetchQ: () => dispatch(actionCreators.fetchQ()),
+    reset: () => dispatch({ type: "RESET" })
   };
 };
 
