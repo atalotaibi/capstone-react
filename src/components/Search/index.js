@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSearch } from "@fortawesome/free-solid-svg-icons";
-
+import { faSearch, faPlusSquare } from "@fortawesome/free-solid-svg-icons";
+import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import Qlist from "../Qlist";
 
@@ -164,6 +164,13 @@ class Search extends Component {
               <FontAwesomeIcon icon={faSearch} />
             </span>
           </div>
+          <Link to="/QForm">
+            <div className="input-group-append">
+              <span className="input-group-text">
+                <FontAwesomeIcon icon={faPlusSquare} />
+              </span>
+            </div>
+          </Link>
         </div>
         <div>
           <Qlist />

@@ -11,14 +11,17 @@ class Qcards extends Component {
       <div>
         <div className="card w-75">
           <div className="card-body">
-            <h5 className="card-title">{question.q_text}</h5>
-            <p className="card-text" />
+            <Link to={`/questions/${question.id}`}>
+              <h5 className="card-title">{question.q_text}</h5>
+
+              <p className="card-text" />
+            </Link>
             {/* <a className="btn btn-primary">Button</a> */}
             <p className="card-text" />{" "}
-            <Link to="/Qlist">
-              {/* <AnswerForm /> */}
+            {/* <Link to="/Qlist">
+              <AnswerForm />
               <button type="submit">post</button>{" "}
-            </Link>
+            </Link> */}
           </div>
 
           {/* <div className="col-md-2">
