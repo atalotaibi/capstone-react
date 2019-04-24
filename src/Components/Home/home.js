@@ -36,16 +36,12 @@ class Home extends Component {
             style={{
               backgroundImage:
                 "url(" +
-                "https://cdn.pixabay.com/photo/2018/03/19/18/20/tea-time-3240766__480.jpg" +
+                "https://images.pexels.com/photos/545057/pexels-photo-545057.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500" +
                 ")",
               width: "100%",
               height: "300%"
             }}
-          >
-            <div>
-              <Search />
-            </div>
-          </header>
+          />
 
           <body>
             {/* <!-- Navigation --> */}

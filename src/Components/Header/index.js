@@ -11,15 +11,17 @@ class Navbar extends Component {
       <div>
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
           <div className="container">
-            <a className="navbar-brand" href="#">
-              LookUp
-              {/* <img
+            <Link to="/Home">
+              <a className="navbar-brand" href="#">
+                LookUp
+                {/* <img
                     className="card-img-top"
                     src={linkedin_profile_image}
                     alt="hgh"
                     style={{ width: 350, height: 90 }}
                   /> */}
-            </a>
+              </a>
+            </Link>
             <button
               className="navbar-toggler"
               type="button"
@@ -51,13 +53,19 @@ class Navbar extends Component {
                     <div className="up-item">
                       <div className="shopping-card">
                         <i className="flaticon-bag" />
-                        Ask Question
                       </div>
-                      <Link to="/QForm" />
+                      <Link to="/QForm">Ask Question</Link>
                     </div>
                   </div>
                 ) : (
                   <div className="navbar-nav ml-auto">
+                    <div className="up-item ml-3">
+                      <i
+                        class="fas fa-user-plus"
+                        style={{ color: "gray", marginLeft: 5 }}
+                      />
+                      <Link to="/Search">Search</Link>
+                    </div>
                     <div className="up-item ml-3">
                       <i
                         class="fas fa-user-plus"

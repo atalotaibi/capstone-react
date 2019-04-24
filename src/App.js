@@ -40,8 +40,6 @@ class App extends Component {
 
   render() {
     return (
-
-
       //  <div className="App">
       //   { <Search /> }
       // //   {/* <SearchBar /> */}
@@ -50,7 +48,6 @@ class App extends Component {
       // //   <QAnswers />
       // //   {/* <AnswerForm /> */}
       //  </div>
-
 
       // <div>
       //   <div className="container-fluid my-4">
@@ -80,11 +77,12 @@ class App extends Component {
       //  </div>
 
       <div>
-        <div className="container-fluid my-4">
-          {/* <Search /> */}
-      <Header />
+        {/* <div className="container-fluid my-4"> */}
+        {/* <Search /> */}
+        <div className="content-container">
           <Switch>
             <BrowserRouter>
+              <Header />
               <Route exact path="/Home" component={home} />
               <Route exact path="/signup" component={RegistrationForm} />
               <Route exact path="/login" component={LoginForm} />
@@ -96,8 +94,8 @@ class App extends Component {
               <Route exact path="/QAnswers" component={QAnswers} />
             </BrowserRouter>
           </Switch>
-       <Footer />
         </div>
+        <Footer />
       </div>
 
       // {/* <div className="App">

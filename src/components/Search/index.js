@@ -44,6 +44,7 @@ class Search extends Component {
             <option value="4">4</option>
           </select>
         </div> */}
+        <br />
         <div className="form-check form-check-inline">
           <input
             className="form-check-input"
@@ -66,13 +67,13 @@ class Search extends Component {
             type="radio"
             name="inlineRadioOptions"
             id="inlineRadio1"
-            value="greeting"
+            value="philosophy"
             onChange={event =>
               this.props.filterQuestionsByMajor(event.target.value)
             }
           />
           <label className="form-check-label" for="inlineRadio1">
-            greeting
+            philosophy
           </label>
         </div>
         <div className="form-check form-check-inline">
