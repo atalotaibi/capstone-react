@@ -6,7 +6,9 @@ import { Search } from "../Search";
 class LoginForm extends Component {
   state = {
     username: "",
-    password: ""
+    password: "",
+    loginalertUsername: false,
+    loginalertPassword: false
   };
   componentDidMount() {
     if (this.props.user) {
@@ -20,9 +22,16 @@ class LoginForm extends Component {
 
   submitHandler = (e, type) => {
     e.preventDefault();
-    if (type === "login") {
+    if (this.props.username && this.props.passsword) {
+      this.setState({
+        loginalertUsername: false,
+        loginalertPassword: false
+      });
       this.props.login(this.state, this.props.history);
+    } else {
+      this.setState({ loginalertUsername: true, loginalertPassword: true });
     }
+    this.props.login(this.state, this.props.history);
   };
 
   render() {
@@ -33,6 +42,13 @@ class LoginForm extends Component {
         <div className="card-body">
           <h5 className="card-title mb-4" />
           <form onSubmit={event => this.submitHandler(event, type)}>
+            {this.state.loginalertUsername ? (
+              <div class="alert alert-danger" role="alert">
+                Wrong Username
+              </div>
+            ) : (
+              <></>
+            )}
             <div className="form-group">
               <input
                 className=" form-control "
@@ -43,6 +59,13 @@ class LoginForm extends Component {
               />
               {/* <div className="invalid-feedback">{error.username}</div> */}
             </div>
+            {this.state.loginalertPassword ? (
+              <div class="alert alert-danger" role="alert">
+                Password Dont Match
+              </div>
+            ) : (
+              <></>
+            )}
             <div className="form-group">
               <input
                 className="form-control"
