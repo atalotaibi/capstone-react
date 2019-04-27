@@ -9,13 +9,13 @@ class Answer extends Component {
   state = {
     checked: false
   };
-  componentDidMount() {
-    if (this.props.answer.approved === true) {
+  componentDidMount = () => {
+    if (this.props.answer.approved) {
       console.log(this.props.answer.approved);
       this.setState({ checked: !this.state.checked });
       this.props.incrementCounter(true);
     }
-  }
+  };
   handleClick = async () => {
     await this.setState({ checked: !this.state.checked });
     this.props.approveAnswer(this.props.answer.id, this.state.checked);

@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import "./App.css";
 import Qlist from "./Components/Qlist";
 import QDetail from "./Components/َQDetail";
-
+import ProfileDetail from "./Components/Profile";
 import Search from "./Components/Search";
 import Home from "./Components/Home";
 import QForm from "./Components/QForm";
@@ -49,6 +49,7 @@ class App extends Component {
               <Route exact path="/Home" component={home} />
               <Route exact path="/signup" component={RegistrationForm} />
               <Route exact path="/login" component={LoginForm} />
+              <Route exact path="/Profile" component={ProfileDetail} />
               <Route exact path="/AnswerForm" component={AnswerForm} />
               <Route exact path="/Search" component={Search} />
               <Route exact path="/Qlist" component={Qlist} />

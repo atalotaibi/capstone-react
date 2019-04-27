@@ -36,7 +36,7 @@ class Search extends Component {
             type="radio"
             name="inlineRadioOptions"
             id="inlineRadio1"
-            value={majorList[0]}
+            value="1"
             onChange={event =>
               this.props.filterQuestionsByMajor(event.target.value)
             }
@@ -51,7 +51,7 @@ class Search extends Component {
             type="radio"
             name="inlineRadioOptions"
             id="inlineRadio1"
-            value={majorList[1]}
+            value="2"
             onChange={event =>
               this.props.filterQuestionsByMajor(event.target.value)
             }
@@ -66,7 +66,7 @@ class Search extends Component {
             type="radio"
             name="inlineRadioOptions"
             id="inlineRadio1"
-            value={majorList[2]}
+            value="3"
             onChange={event =>
               this.props.filterQuestionsByMajor(event.target.value)
             }
@@ -81,7 +81,7 @@ class Search extends Component {
             type="radio"
             name="inlineRadioOptions"
             id="inlineRadio1"
-            value={majorList[3]}
+            value="4"
             onChange={event =>
               this.props.filterQuestionsByMajor(event.target.value)
             }
@@ -96,7 +96,7 @@ class Search extends Component {
             type="radio"
             name="inlineRadioOptions"
             id="inlineRadio1"
-            value={majorList[4]}
+            value="5"
             onChange={event =>
               this.props.filterQuestionsByMajor(event.target.value)
             }
@@ -111,7 +111,7 @@ class Search extends Component {
             type="radio"
             name="inlineRadioOptions"
             id="inlineRadio1"
-            value={majorList[5]}
+            value="6"
             onChange={event =>
               this.props.filterQuestionsByMajor(event.target.value)
             }
@@ -126,7 +126,7 @@ class Search extends Component {
             type="radio"
             name="inlineRadioOptions"
             id="inlineRadio1"
-            value={majorList[6]}
+            value="7"
             onChange={event =>
               this.props.filterQuestionsByMajor(event.target.value)
             }
@@ -141,7 +141,7 @@ class Search extends Component {
             type="radio"
             name="inlineRadioOptions"
             id="inlineRadio1"
-            value={majorList[7]}
+            value="8"
             onChange={event =>
               this.props.filterQuestionsByMajor(event.target.value)
             }
@@ -156,7 +156,7 @@ class Search extends Component {
             type="radio"
             name="inlineRadioOptions"
             id="inlineRadio1"
-            value={majorList[8]}
+            value="9"
             onChange={event =>
               this.props.filterQuestionsByMajor(event.target.value)
             }
@@ -171,7 +171,7 @@ class Search extends Component {
             type="radio"
             name="inlineRadioOptions"
             id="inlineRadio1"
-            value={majorList[9]}
+            value="10"
             onChange={event =>
               this.props.filterQuestionsByMajor(event.target.value)
             }
@@ -186,7 +186,7 @@ class Search extends Component {
             type="radio"
             name="inlineRadioOptions"
             id="inlineRadio1"
-            value={majorList[10]}
+            value="11"
             onChange={event =>
               this.props.filterQuestionsByMajor(event.target.value)
             }
@@ -201,7 +201,7 @@ class Search extends Component {
             type="radio"
             name="inlineRadioOptions"
             id="inlineRadio1"
-            value={majorList[11]}
+            value="12"
             onChange={event =>
               this.props.filterQuestionsByMajor(event.target.value)
             }
@@ -216,7 +216,7 @@ class Search extends Component {
             type="radio"
             name="inlineRadioOptions"
             id="inlineRadio1"
-            value={majorList[12]}
+            value="13"
             onChange={event =>
               this.props.filterQuestionsByMajor(event.target.value)
             }
@@ -231,7 +231,7 @@ class Search extends Component {
             type="radio"
             name="inlineRadioOptions"
             id="inlineRadio1"
-            value={majorList[13]}
+            value="14"
             onChange={event =>
               this.props.filterQuestionsByMajor(event.target.value)
             }
@@ -246,7 +246,7 @@ class Search extends Component {
             type="radio"
             name="inlineRadioOptions"
             id="inlineRadio1"
-            value={majorList[14]}
+            value="15"
             onChange={event =>
               this.props.filterQuestionsByMajor(event.target.value)
             }

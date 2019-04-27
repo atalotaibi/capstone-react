@@ -28,7 +28,9 @@ class QForm extends Component {
 
   render() {
     const { majors } = this.props;
+    console.log(majors);
     const majorList = majors.map(major => major.major);
+    console.log(majorList);
 
     return (
       <form onSubmit={this.handleSubmit}>

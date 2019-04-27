@@ -17,12 +17,11 @@ class QDetail extends Component {
     if (prevProps.counter !== this.props.counter) {
       this.setState({ counter: this.props.counter });
     }
-
     if (
       this.props.match.params.questionID !== prevProps.match.params.questionID
     ) {
+      this.props.resetCounter();
       this.props.reset();
-
       this.props.fetchQDetail(this.props.match.params.questionID);
     }
   }
@@ -64,7 +63,7 @@ class QDetail extends Component {
                         this.state.boolean,
                         this.props.history
                       );
-                      this.props.resetCounter();
+                      await this.props.resetCounter();
                     }}
                     className="btn btn-danger"
                   >
