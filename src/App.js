@@ -8,7 +8,8 @@ import Home from "./Components/Home";
 import QForm from "./Components/QForm";
 import QAnswers from "./Components/QAnswers";
 import AnswerForm from "./Components/AnswerForm";
-
+import Profile from "./Components/Profile/ProfileDetail";
+// import Profile from "./Components/Profile/ProfileUpdate";
 import {
   Switch,
   Route,
@@ -29,9 +30,13 @@ import { connect } from "react-redux";
 import RegistrationForm from "./Components/Authentications/RegistrationForm";
 import LoginForm from "./Components/Authentications/LoginForm";
 import questions from "./store/reducers/questionsReducer";
+
+import ProfileDetail from "./Components/Profile";
+
 import home from "./Components/Home/home";
 import Footer from "./Components/Footer";
 import Header from "./Components/Header";
+
 
 class App extends Component {
   componentDidMount = async () => {
@@ -42,6 +47,7 @@ class App extends Component {
   render() {
     return (
       <div>
+
         <div className="content-container">
           <Switch>
             <BrowserRouter>
@@ -52,23 +58,17 @@ class App extends Component {
               <Route exact path="/AnswerForm" component={AnswerForm} />
               <Route exact path="/Search" component={Search} />
               <Route exact path="/Qlist" component={Qlist} />
+
               <Route path="/questions/:questionID" component={QDetail} />
               <Route exact path="/QForm" component={QForm} />
               <Route exact path="/QAnswers" component={QAnswers} />
+              <Route exact path="/Profile" component={ProfileDetail} />
+              <Footer />
             </BrowserRouter>
           </Switch>
         </div>
-        <Footer />
+        
       </div>
-
-      // {/* <div className="App">
-      // <Search />
-      //   {/* <SearchBar /> */}
-      // <Qlist />
-      // <QForm />
-      //   <QAnswers />
-      //   {/* <AnswerForm /> */}
-      // </div> */}
     );
   }
 }

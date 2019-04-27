@@ -61,13 +61,14 @@ export const login = userData => {
 export const signup = (userData, history) => {
   return async dispatch => {
     try {
-      if (userData.is_expert) {
-        await instance.post("expert/register/", userData);
-        dispatch(login(userData, history));
-      } else {
-        await instance.post("register/", userData);
-        dispatch(login(userData, history));
-      }
+      // if (userData.is_expert) {
+      //   await instance.post("expert/register/", userData);
+      //   dispatch(login(userData, history));
+      // } else
+      // {
+      await instance.post("register/", userData);
+      dispatch(login(userData, history));
+      // }
     } catch (error) {
       console.error(error.response.data);
     }

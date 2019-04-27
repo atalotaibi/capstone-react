@@ -21,6 +21,9 @@ class RegistrationForm extends Component {
     this.setState({ [e.target.name]: e.target.value });
   };
 
+  // handleFileUpload(e) {
+  // const file = e.target.files[0];
+
   submitHandler = (e, type) => {
     e.preventDefault();
     if (type === "signup") {
@@ -82,6 +85,8 @@ class RegistrationForm extends Component {
                 onChange={this.changeHandler}
               />
             </div>
+            <input type="file" onChange={this.handleFileUpload} />
+
             <input
               className="btn btn-primery btn-block"
               style={{ color: "#FFF", backgroundColor: "#696969" }}

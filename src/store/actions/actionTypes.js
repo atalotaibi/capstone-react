@@ -5,6 +5,8 @@ export const SET_CURRENT_USER = "SET_CURRENT_USER";
 
 export const FETCH_Q = "FETCH_Q";
 export const FETCH_ANSWERS = "FETCH_ANSWERS";
+export const FETCH_PROFILE_DETAIL = "FETCH_PROFILE_DETAIL";
+export const PROFILE_UPDATE = "PROFILE_UPDATE";
 
 export const QUESTION_FILTER = "QUESTION_FILTER";
 
