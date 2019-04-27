@@ -10,9 +10,7 @@ class AnswerForm extends Component {
 
   submitAnswer = e => {
     e.preventDefault();
-    // if (this.state.a_text):
-    let questionID = "1";
-    //   sendAnswer(this.state, this.props.question.id, this.resetForm);
+    const questionID = this.props.id;
     this.props.sendAnswer(this.state, questionID, this.resetForm);
   };
 
@@ -20,6 +18,8 @@ class AnswerForm extends Component {
 
   render() {
     const { a_text } = this.state;
+    const questionID = this.props.id;
+
     return (
       <div>
         <form className="col-11 mx-auto" onSubmit={this.submitAnswer}>
@@ -44,9 +44,8 @@ class AnswerForm extends Component {
                   if (!e.shiftKey && e.key === "Enter") this.submitAnswer(e);
                 }}
               /> */}
-          <Link to="/Answer">
-            <button className="btn btn-primary">Post</button>
-          </Link>
+
+          <button className="btn btn-primary">Post</button>
         </form>
       </div>
     );

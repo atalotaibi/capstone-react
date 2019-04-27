@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import * as actionCreators from "../../store/actions";
 import { Link } from "react-router-dom";
-import { Search } from "../Search";
 class LoginForm extends Component {
   state = {
     username: "",
@@ -18,10 +17,14 @@ class LoginForm extends Component {
     this.setState({ [e.target.name]: e.target.value });
   };
 
-  submitHandler = (e, type) => {
+  submitHandler = async (e, type) => {
     e.preventDefault();
     if (type === "login") {
-      this.props.login(this.state, this.props.history);
+      await this.props.login(this.state);
+      this.props.fetchProfileDetail(
+        this.props.user.user_id,
+        this.props.history
+      );
     }
   };
 
@@ -41,7 +44,6 @@ class LoginForm extends Component {
                 name="username"
                 onChange={this.changeHandler}
               />
-              {/* <div className="invalid-feedback">{error.username}</div> */}
             </div>
             <div className="form-group">
               <input
@@ -78,7 +80,9 @@ class LoginForm extends Component {
 
 const mapDispatchToProps = dispatch => ({
   login: (userData, history) =>
-    dispatch(actionCreators.login(userData, history))
+    dispatch(actionCreators.login(userData, history)),
+  fetchProfileDetail: (userID, history) =>
+    dispatch(actionCreators.fetchProfileDetail(userID, history))
 });
 
 const mapStateToProps = state => ({

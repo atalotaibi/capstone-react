@@ -1,7 +1,8 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
-import AnswerForm from "./AnswerForm";
-
+import { Link, withRouter } from "react-router-dom";
+import renderHTML from "react-render-html";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faThumbsUp, faPenFancy } from "@fortawesome/free-solid-svg-icons";
 import * as actionCreators from "../store/actions";
 import { connect } from "react-redux";
 class Qcards extends Component {
@@ -11,38 +12,23 @@ class Qcards extends Component {
       <div>
         <div className="card w-75">
           <div className="card-body">
-            <h5 className="card-title">{question.q_text}</h5>
-
-            <p className="card-text">THis is a contect for a question</p>
-            <a className="btn btn-primary">Button</a>
-
-            <p className="card-text">
-              With supporting text below as a natural lead-in to additional
-              content.
-            </p>
-//             <Link to="/Qlist">
-//               <AnswerForm />
-//               <button type="submit">post</button>
-//             </Link>
-
+            <Link to={this.props.user ? `/questions/${question.id}` : "/login"}>
+              <h4>{renderHTML(question.q_text)}</h4>
+            </Link>
           </div>
 
-          <div className="col-md-2">
-            <button
-              onClick={questionID =>
-                this.props.deleteQuestion(this.props.question.id)
-              }
-              className="btn btn-danger"
-            >
-              Remove
-            </button>
-          </div>
+          {question.approved ? <FontAwesomeIcon icon={faThumbsUp} /> : <div />}
+          {question.answered ? <p>{question.answers.length}</p> : <div />}
         </div>
       </div>
     );
   }
 }
-
+const mapStateToProps = state => {
+  return {
+    user: state.authenticationReducer.user
+  };
+};
 const mapDispatchToProps = dispatch => {
   return {
     deleteQuestion: questionID =>
@@ -50,7 +36,9 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-export default connect(
-  null,
-  mapDispatchToProps
-)(Qcards);
+export default withRouter(
+  connect(
+    mapStateToProps,
+    mapDispatchToProps
+  )(Qcards)
+);

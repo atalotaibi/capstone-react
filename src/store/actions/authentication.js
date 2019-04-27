@@ -39,7 +39,7 @@ const setCurrentUser = user => ({
   payload: user
 });
 
-export const login = (userData, history) => {
+export const login = userData => {
   return async dispatch => {
     try {
       const response = await instance.post("login/", userData);
@@ -48,9 +48,8 @@ export const login = (userData, history) => {
 
       setAuthToken(token);
       dispatch(setCurrentUser(decodedUser));
-      history.push("Search");
     } catch (error) {
-      console.error(error.response.data);
+      // console.error(error.response.data);
       dispatch({
         type: actionTypes.SET_ERRORS,
         payload: error.response.data
@@ -78,4 +77,20 @@ export const signup = (userData, history) => {
 export const logout = () => {
   setAuthToken();
   return setCurrentUser();
+};
+export const fetchProfileDetail = (userID, history) => {
+  return async dispatch => {
+    try {
+      const res = await instance.get(`user/detail/${userID}/`);
+
+      const userprofile = res.data;
+      dispatch({
+        type: actionTypes.FETCH_PROFILE_DETAIL,
+        payload: userprofile
+      });
+      history.push("Search");
+    } catch (error) {
+      console.error(error);
+    }
+  };
 };
