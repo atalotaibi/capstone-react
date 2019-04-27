@@ -5,25 +5,54 @@ import { Qlist } from "./Qlist";
 import { Link } from "react-router-dom";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
+import Major from "./Major";
 
 class QForm extends Component {
   state = {
     q_text: "",
     major: ""
   };
+
+  componentDidMount() {
+    this.props.fetchMajors();
+  }
   textChangeHandler = e => this.setState({ q_text: e });
 
   majorChangeHandler = e => this.setState({ [e.target.name]: e.target.value });
 
   handleSubmit = event => {
     event.preventDefault();
-    console.log(this.state);
-    console.log("[QForm.js handlsubmit]");
     this.props.askQ(this.state, this.props.history);
+    console.log(this.state);
     this.setState({
-      q_text: "",
-      major: ""
+      q_text: ""
     });
+  };
+  // majors.length <- 0
+  // if(!!majors.length) <- 0 to false
+  // assume majors = [A,B]
+  // majors.length <- 2
+  // 2 <- true
+
+  getView = () => {
+    let major = "";
+
+    // if (this.props.question) {
+    major = this.props.majors.map(major => (
+      <Major key={major.id.name} major={major} />
+    ));
+    // }
+
+    return (
+      <select
+        type="select"
+        name="major"
+        onChange={this.majorChangeHandler}
+        className="form-control"
+      >
+        {major}
+      </select>
+    );
   };
 
   render() {
@@ -77,6 +106,7 @@ class QForm extends Component {
                 </button>
               </div>
             </div>
+
           </div>
         </div>
       </form>
@@ -112,6 +142,11 @@ QForm.formats = [
   "video",
   "code-block"
 ];
+const mapStateToProps = state => {
+  return {
+    majors: state.majorReducer.majors
+  };
+};
 
 const mapStateToProps = state => {
   return {
@@ -122,7 +157,8 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     askQ: (question, history) =>
-      dispatch(actionCreators.askQ(question, history))
+      dispatch(actionCreators.askQ(question, history)),
+    fetchMajors: majors => dispatch(actionCreators.fetchMajors(majors))
   };
 };
 

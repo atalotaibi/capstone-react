@@ -5,7 +5,9 @@ import { Link } from "react-router-dom";
 class LoginForm extends Component {
   state = {
     username: "",
-    password: ""
+    password: "",
+    loginalertUsername: false,
+    loginalertPassword: false
   };
   componentDidMount() {
     if (this.props.user) {
@@ -19,13 +21,25 @@ class LoginForm extends Component {
 
   submitHandler = async (e, type) => {
     e.preventDefault();
+
+    if (this.props.username && this.props.passsword) {
+      this.setState({
+        loginalertUsername: false,
+        loginalertPassword: false
+      });
+      this.props.login(this.state, this.props.history);
+    } else {
+      this.setState({ loginalertUsername: true, loginalertPassword: true });
+
     if (type === "login") {
       await this.props.login(this.state);
       this.props.fetchProfileDetail(
         this.props.user.user_id,
         this.props.history
       );
+
     }
+    this.props.login(this.state, this.props.history);
   };
 
   render() {
@@ -36,6 +50,13 @@ class LoginForm extends Component {
         <div className="card-body">
           <h5 className="card-title mb-4" />
           <form onSubmit={event => this.submitHandler(event, type)}>
+            {this.state.loginalertUsername ? (
+              <div class="alert alert-danger" role="alert">
+                Wrong Username
+              </div>
+            ) : (
+              <></>
+            )}
             <div className="form-group">
               <input
                 className=" form-control "
@@ -45,6 +66,13 @@ class LoginForm extends Component {
                 onChange={this.changeHandler}
               />
             </div>
+            {this.state.loginalertPassword ? (
+              <div class="alert alert-danger" role="alert">
+                Password Dont Match
+              </div>
+            ) : (
+              <></>
+            )}
             <div className="form-group">
               <input
                 className="form-control"
