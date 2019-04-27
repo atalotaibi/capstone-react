@@ -8,7 +8,8 @@ import Home from "./Components/Home";
 import QForm from "./Components/QForm";
 import QAnswers from "./Components/QAnswers";
 import AnswerForm from "./Components/AnswerForm";
-
+import Profile from "./Components/Profile/ProfileDetail";
+// import Profile from "./Components/Profile/ProfileUpdate";
 import {
   Switch,
   Route,
@@ -29,56 +30,24 @@ import { connect } from "react-redux";
 import RegistrationForm from "./Components/Authentications/RegistrationForm";
 import LoginForm from "./Components/Authentications/LoginForm";
 import questions from "./store/reducers/questionsReducer";
+
+import ProfileDetail from "./Components/Profile";
+
 import home from "./Components/Home/home";
 import Footer from "./Components/Footer";
 import Header from "./Components/Header";
 
+
 class App extends Component {
   componentDidMount = async () => {
     await this.props.checkForExpiredToken();
+    this.props.fetchMajors();
   };
 
   render() {
     return (
-      //  <div className="App">
-      //   { <Search /> }
-      // //   {/* <SearchBar /> */}
-      // //   {/* <Qlist /> */}
-      // //   {/* <QForm /> */}
-      // //   <QAnswers />
-      // //   {/* <AnswerForm /> */}
-      //  </div>
-
-      // <div>
-      //   <div className="container-fluid my-4">
-      //     <Switch>
-      //       <BrowserRouter>
-      //         <Route exact path="/Home" component={Home} />
-      //         <Route exact path="/signup" component={RegistrationForm} />
-      //         <Route exact path="/login" component={LoginForm} />
-      //         <Route exact path="/AnswerForm" component={AnswerForm} />
-      //         <Route exact path="/Search" component={Search} />
-      //         <Route exact path="/Qlist" component={Qlist} />
-      //         <Route exact path="/QForm" component={QForm} />
-      //         <Route exact path="/QAnswers" component={QAnswers} />
-      //       </BrowserRouter>
-
-      //     </Switch>
-      //   </div>
-      // </div>
-
-      //  <div className="App">
-      //   { <Search /> }
-      // //   {/* <SearchBar /> */}
-      // //   {/* <Qlist /> */}
-      // //   {/* <QForm /> */}
-      // //   <QAnswers />
-      // //   {/* <AnswerForm /> */}
-      //  </div>
-
       <div>
-        {/* <div className="container-fluid my-4"> */}
-        {/* <Search /> */}
+
         <div className="content-container">
           <Switch>
             <BrowserRouter>
@@ -89,23 +58,17 @@ class App extends Component {
               <Route exact path="/AnswerForm" component={AnswerForm} />
               <Route exact path="/Search" component={Search} />
               <Route exact path="/Qlist" component={Qlist} />
+
               <Route path="/questions/:questionID" component={QDetail} />
               <Route exact path="/QForm" component={QForm} />
               <Route exact path="/QAnswers" component={QAnswers} />
+              <Route exact path="/Profile" component={ProfileDetail} />
+              <Footer />
             </BrowserRouter>
           </Switch>
         </div>
-        <Footer />
+        
       </div>
-
-      // {/* <div className="App">
-      // <Search />
-      //   {/* <SearchBar /> */}
-      // <Qlist />
-      // <QForm />
-      //   <QAnswers />
-      //   {/* <AnswerForm /> */}
-      // </div> */}
     );
   }
 }
@@ -113,7 +76,8 @@ const mapStateToProps = state => {
   return {
     user: state.authenticationReducer.user,
     userLoading: state.authenticationReducer.userLoading,
-    questions: state.questions.filteredQuestions
+    questions: state.questions.filteredQuestions,
+    majors: state.questions.majors
   };
 };
 
@@ -121,7 +85,8 @@ const mapDispatchToProps = dispatch => {
   return {
     checkForExpiredToken: () => dispatch(actionCreators.checkForExpiredToken()),
     fetchAnswers: () => dispatch(actionCreators.fetchAnswers()),
-    fetchQ: () => dispatch(actionCreators.fetchQ())
+    fetchQ: () => dispatch(actionCreators.fetchQ()),
+    fetchMajors: () => dispatch(actionCreators.fetchMajors())
   };
 };
 

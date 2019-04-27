@@ -99,7 +99,7 @@ class Profile extends Component {
           </div>
         </div>
       </div>
-      // abt3ed ma abeak
+
       // {/* <div className="row">
       //   <div className="col-3 ">
       //     <div className="card align-items-center" style={{ height: "100%" }}>

@@ -3,11 +3,14 @@ import * as actionTypes from "../actions/actionTypes";
 const initialState = {
   questions: [],
   question: {},
+  majors: [],
   answers: [],
   filteredQuestions: [],
   loading: true,
   question1: [],
-  flag_: false
+  flag_: false,
+  counter: 0,
+  qApprove: false
 };
 
 const questionsReducer = (state = initialState, action) => {
@@ -25,6 +28,11 @@ const questionsReducer = (state = initialState, action) => {
         filteredQuestions: [...action.payload],
         loading: false,
         flag_: false
+      };
+    case actionTypes.FETCH_MAJORS:
+      return {
+        ...state,
+        majors: state.questions.concat(action.payload)
       };
 
     case actionTypes.FETCH_QUESTION_DETAIL:
@@ -59,12 +67,12 @@ const questionsReducer = (state = initialState, action) => {
         ...state,
         flag_: true,
         filteredQuestions: state.questions.filter(question => {
-          if (question.major.name === action.payload) {
+          if (question.major.major === action.payload) {
             return `${question.q_text}`.toLowerCase();
           }
         }),
         question1: state.questions.filter(question => {
-          if (question.major.name === action.payload) {
+          if (question.major.major === action.payload) {
             return `${question.q_text}`.toLowerCase();
           }
         })
@@ -121,6 +129,22 @@ const questionsReducer = (state = initialState, action) => {
         question: [],
         filteredQuestions: []
       };
+    case actionTypes.RESET_COUNTER:
+      return {
+        ...state,
+        counter: 0
+      };
+    case actionTypes.APPROVE_ANSWER:
+      return {
+        ...state,
+        counter: action.payload.approved ? state.counter + 1 : state.counter - 1
+      };
+    case actionTypes.INCREMENT_COUNTER:
+      return {
+        ...state,
+        counter: action.payload ? state.counter + 1 : state.counter
+      };
+
     default:
       return state;
   }

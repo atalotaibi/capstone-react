@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSearch, faPlusSquare } from "@fortawesome/free-solid-svg-icons";
+import { faPlusSquare } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import Qlist from "../Qlist";
@@ -8,42 +8,11 @@ import Qlist from "../Qlist";
 import * as actionCreators from "../../store/actions";
 
 class Search extends Component {
-  // state = {
-  //   major: ""
-  // };
-  // textChangeHandler = e => {
-  //   this.setState({ [e.target.name]: e.target.value });
-  //   this.props.filterQuestionsByMajor(this.state);
-  // };
-  // handleChange = e => {
-  //   this.setState({ query: e.target.value });
-  // };
-  // componentDidUpdate() {
-  //   this.props.fetchQ();
-  // }
-
   render() {
+    const { majors } = this.props;
+    const majorList = majors.map(major => major.major);
     return (
       <div className="form-group col-lg-6 col-12 mx-auto">
-        {/* <div className="form-group">
-          <select
-            type="select"
-            placeholder="select"
-            name="major"
-            onChange={event =>
-              event.target.value
-                ? this.props.filterQuestionsByMajor(event.target.value)
-                : this.props.reset() && this.props.fetchQ()
-            }
-            multiple="multiple"
-            className="form-control"
-          >
-            <option value="greeting">greeting</option>
-            <option value="math">math</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-          </select>
-        </div> */}
         <br />
         <div className="form-check form-check-inline">
           <input
@@ -67,13 +36,13 @@ class Search extends Component {
             type="radio"
             name="inlineRadioOptions"
             id="inlineRadio1"
-            value="philosophy"
+            value={majorList[0]}
             onChange={event =>
               this.props.filterQuestionsByMajor(event.target.value)
             }
           />
           <label className="form-check-label" for="inlineRadio1">
-            philosophy
+            {majorList[0]}
           </label>
         </div>
         <div className="form-check form-check-inline">
@@ -82,13 +51,208 @@ class Search extends Component {
             type="radio"
             name="inlineRadioOptions"
             id="inlineRadio1"
-            value="math"
+            value={majorList[1]}
             onChange={event =>
               this.props.filterQuestionsByMajor(event.target.value)
             }
           />
           <label className="form-check-label" for="inlineRadio1">
-            math
+            {majorList[1]}
+          </label>
+        </div>
+        <div className="form-check form-check-inline">
+          <input
+            className="form-check-input"
+            type="radio"
+            name="inlineRadioOptions"
+            id="inlineRadio1"
+            value={majorList[2]}
+            onChange={event =>
+              this.props.filterQuestionsByMajor(event.target.value)
+            }
+          />
+          <label className="form-check-label" for="inlineRadio1">
+            {majorList[2]}
+          </label>
+        </div>
+        <div className="form-check form-check-inline">
+          <input
+            className="form-check-input"
+            type="radio"
+            name="inlineRadioOptions"
+            id="inlineRadio1"
+            value={majorList[3]}
+            onChange={event =>
+              this.props.filterQuestionsByMajor(event.target.value)
+            }
+          />
+          <label className="form-check-label" for="inlineRadio1">
+            {majorList[3]}
+          </label>
+        </div>
+        <div className="form-check form-check-inline">
+          <input
+            className="form-check-input"
+            type="radio"
+            name="inlineRadioOptions"
+            id="inlineRadio1"
+            value={majorList[4]}
+            onChange={event =>
+              this.props.filterQuestionsByMajor(event.target.value)
+            }
+          />
+          <label className="form-check-label" for="inlineRadio1">
+            {majorList[4]}
+          </label>
+        </div>
+        <div className="form-check form-check-inline">
+          <input
+            className="form-check-input"
+            type="radio"
+            name="inlineRadioOptions"
+            id="inlineRadio1"
+            value={majorList[5]}
+            onChange={event =>
+              this.props.filterQuestionsByMajor(event.target.value)
+            }
+          />
+          <label className="form-check-label" for="inlineRadio1">
+            {majorList[5]}
+          </label>
+        </div>
+        <div className="form-check form-check-inline">
+          <input
+            className="form-check-input"
+            type="radio"
+            name="inlineRadioOptions"
+            id="inlineRadio1"
+            value={majorList[6]}
+            onChange={event =>
+              this.props.filterQuestionsByMajor(event.target.value)
+            }
+          />
+          <label className="form-check-label" for="inlineRadio1">
+            {majorList[6]}
+          </label>
+        </div>
+        <div className="form-check form-check-inline">
+          <input
+            className="form-check-input"
+            type="radio"
+            name="inlineRadioOptions"
+            id="inlineRadio1"
+            value={majorList[7]}
+            onChange={event =>
+              this.props.filterQuestionsByMajor(event.target.value)
+            }
+          />
+          <label className="form-check-label" for="inlineRadio1">
+            {majorList[7]}
+          </label>
+        </div>
+        <div className="form-check form-check-inline">
+          <input
+            className="form-check-input"
+            type="radio"
+            name="inlineRadioOptions"
+            id="inlineRadio1"
+            value={majorList[8]}
+            onChange={event =>
+              this.props.filterQuestionsByMajor(event.target.value)
+            }
+          />
+          <label className="form-check-label" for="inlineRadio1">
+            {majorList[8]}
+          </label>
+        </div>
+        <div className="form-check form-check-inline">
+          <input
+            className="form-check-input"
+            type="radio"
+            name="inlineRadioOptions"
+            id="inlineRadio1"
+            value={majorList[9]}
+            onChange={event =>
+              this.props.filterQuestionsByMajor(event.target.value)
+            }
+          />
+          <label className="form-check-label" for="inlineRadio1">
+            {majorList[9]}
+          </label>
+        </div>
+        <div className="form-check form-check-inline">
+          <input
+            className="form-check-input"
+            type="radio"
+            name="inlineRadioOptions"
+            id="inlineRadio1"
+            value={majorList[10]}
+            onChange={event =>
+              this.props.filterQuestionsByMajor(event.target.value)
+            }
+          />
+          <label className="form-check-label" for="inlineRadio1">
+            {majorList[10]}
+          </label>
+        </div>
+        <div className="form-check form-check-inline">
+          <input
+            className="form-check-input"
+            type="radio"
+            name="inlineRadioOptions"
+            id="inlineRadio1"
+            value={majorList[11]}
+            onChange={event =>
+              this.props.filterQuestionsByMajor(event.target.value)
+            }
+          />
+          <label className="form-check-label" for="inlineRadio1">
+            {majorList[11]}
+          </label>
+        </div>
+        <div className="form-check form-check-inline">
+          <input
+            className="form-check-input"
+            type="radio"
+            name="inlineRadioOptions"
+            id="inlineRadio1"
+            value={majorList[12]}
+            onChange={event =>
+              this.props.filterQuestionsByMajor(event.target.value)
+            }
+          />
+          <label className="form-check-label" for="inlineRadio1">
+            {majorList[12]}
+          </label>
+        </div>
+        <div className="form-check form-check-inline">
+          <input
+            className="form-check-input"
+            type="radio"
+            name="inlineRadioOptions"
+            id="inlineRadio1"
+            value={majorList[13]}
+            onChange={event =>
+              this.props.filterQuestionsByMajor(event.target.value)
+            }
+          />
+          <label className="form-check-label" for="inlineRadio1">
+            {majorList[13]}
+          </label>
+        </div>
+        <div className="form-check form-check-inline">
+          <input
+            className="form-check-input"
+            type="radio"
+            name="inlineRadioOptions"
+            id="inlineRadio1"
+            value={majorList[14]}
+            onChange={event =>
+              this.props.filterQuestionsByMajor(event.target.value)
+            }
+          />
+          <label className="form-check-label" for="inlineRadio1">
+            {majorList[14]}
           </label>
         </div>
         <div className="form-check form-check-inline">
@@ -164,7 +328,7 @@ class Search extends Component {
 
           <div className="AAB ">
             <span className="AAC">
-              <Link className="AAA" to="/QForm">
+              <Link className="AAA" to={this.props.user ? "/QForm" : "/login"}>
                 <FontAwesomeIcon icon={faPlusSquare} />
               </Link>
             </span>
@@ -177,7 +341,12 @@ class Search extends Component {
     );
   }
 }
-
+const mapStateToProps = state => {
+  return {
+    user: state.authenticationReducer.user,
+    majors: state.questions.majors
+  };
+};
 const mapDispatchToProps = dispatch => {
   return {
     filterQuestions: query => dispatch(actionCreators.filterQuestions(query)),
@@ -192,6 +361,6 @@ const mapDispatchToProps = dispatch => {
   };
 };
 export default connect(
-  null,
+  mapStateToProps,
   mapDispatchToProps
 )(Search);

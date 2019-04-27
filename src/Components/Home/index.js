@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 class index extends Component {
   render() {
     return (
+      // im gonna finish it today inshallh
       <div
         id="carouselExampleIndicators"
         class="carousel slide"

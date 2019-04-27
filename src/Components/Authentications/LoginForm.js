@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import * as actionCreators from "../../store/actions";
 import { Link } from "react-router-dom";
-import { Search } from "../Search";
 class LoginForm extends Component {
   state = {
     username: "",
@@ -20,8 +19,9 @@ class LoginForm extends Component {
     this.setState({ [e.target.name]: e.target.value });
   };
 
-  submitHandler = (e, type) => {
+  submitHandler = async (e, type) => {
     e.preventDefault();
+
     if (this.props.username && this.props.passsword) {
       this.setState({
         loginalertUsername: false,
@@ -30,6 +30,14 @@ class LoginForm extends Component {
       this.props.login(this.state, this.props.history);
     } else {
       this.setState({ loginalertUsername: true, loginalertPassword: true });
+
+    if (type === "login") {
+      await this.props.login(this.state);
+      this.props.fetchProfileDetail(
+        this.props.user.user_id,
+        this.props.history
+      );
+
     }
     this.props.login(this.state, this.props.history);
   };
@@ -57,7 +65,6 @@ class LoginForm extends Component {
                 name="username"
                 onChange={this.changeHandler}
               />
-              {/* <div className="invalid-feedback">{error.username}</div> */}
             </div>
             {this.state.loginalertPassword ? (
               <div class="alert alert-danger" role="alert">
@@ -101,7 +108,9 @@ class LoginForm extends Component {
 
 const mapDispatchToProps = dispatch => ({
   login: (userData, history) =>
-    dispatch(actionCreators.login(userData, history))
+    dispatch(actionCreators.login(userData, history)),
+  fetchProfileDetail: (userID, history) =>
+    dispatch(actionCreators.fetchProfileDetail(userID, history))
 });
 
 const mapStateToProps = state => ({

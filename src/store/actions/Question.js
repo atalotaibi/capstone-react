@@ -6,7 +6,6 @@ const instance = axios.create({
   baseURL: "http://127.0.0.1:8000/api/"
 });
 export const askQ = (Q, history) => {
-  console.log("action works");
   return async dispatch => {
     try {
       const res = await instance.post("question/create/", Q);
@@ -37,12 +36,25 @@ export const fetchQ = () => {
     }
   };
 };
+export const fetchMajors = () => {
+  return async dispatch => {
+    try {
+      const res = await instance.get("major/list/");
+      const majors = res.data;
+      dispatch({
+        type: actionTypes.FETCH_MAJORS,
+        payload: majors
+      });
+    } catch (err) {
+      console.error("ERROR: ", err);
+    }
+  };
+};
 
 export const fetchAnswers = questionID => async dispatch => {
   try {
     const res = await instance.get(`${questionID}/`);
     const question = res.data;
-    console.log(res.data);
 
     dispatch({
       type: actionTypes.FETCH_ANSWERS,
@@ -83,9 +95,7 @@ export const filterQuestions = query => {
   };
 };
 
-
 export const deleteQuestion = (questionID, history) => {
-
   return async dispatch => {
     try {
       const res = await instance.delete(`question/${questionID}/delete/`);
@@ -103,11 +113,9 @@ export const deleteQuestion = (questionID, history) => {
 };
 
 export const filterQuestionsByMajor = major => {
-  console.log("reducer", major);
   return {
     type: actionTypes.FILTER_QUESTION_BY_Major,
     payload: major
-
   };
 };
 export const filterQuestionsByAnswer = status => {
@@ -132,6 +140,39 @@ export const fetchQDetail = questionID => {
         payload: question
       });
     } catch (error) {}
+  };
+};
+export const approveAnswer = (answerID, status) => {
+  return async dispatch => {
+    try {
+      const res = await instance.put(`${answerID}/status/`, {
+        approved: status
+      });
 
+      const status_ = res.data;
+
+      dispatch({
+        type: actionTypes.APPROVE_ANSWER,
+        payload: status_
+      });
+    } catch (err) {
+      console.error("ERROR: ", err);
+    }
+  };
+};
+export const approveQuestion = (questionID, status, history) => {
+  return async dispatch => {
+    try {
+      await instance.put(`${questionID}/qstatus`, { approved: status });
+      history.push("/Search");
+    } catch (err) {
+      console.error("ERROR: ", err);
+    }
+  };
+};
+export const incrementCounter = status => {
+  return {
+    type: actionTypes.INCREMENT_COUNTER,
+    payload: status
   };
 };

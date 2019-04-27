@@ -8,8 +8,23 @@ export {
   filterQuestionsByMajor,
   filterQuestionsByAnswer,
   filterQuestionsByApprove,
-  fetchQDetail
+  fetchQDetail,
+  approveAnswer,
+  approveQuestion,
+  incrementCounter,
+  fetchMajors
 } from "./Question";
 export { setErrors } from "./errorsActions";
-export { login, logout, signup, checkForExpiredToken } from "./authentication";
+
 export { fetchMajors } from "./majorAction";
+
+
+export {
+  login,
+  logout,
+  signup,
+  fetchProfileDetail,
+  checkForExpiredToken
+} from "./authentication";
+export { fetchProfileDetail, ProfileUpdate } from "./profileActions";
+

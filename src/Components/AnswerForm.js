@@ -11,7 +11,6 @@ class AnswerForm extends Component {
   submitAnswer = e => {
     e.preventDefault();
     const questionID = this.props.id;
-    console.log("A2 this QDI: ", questionID);
     this.props.sendAnswer(this.state, questionID, this.resetForm);
   };
 
@@ -20,7 +19,7 @@ class AnswerForm extends Component {
   render() {
     const { a_text } = this.state;
     const questionID = this.props.id;
-    console.log("A2 this QDI: ", questionID);
+
     return (
       <div>
         <form className="col-11 mx-auto" onSubmit={this.submitAnswer}>
