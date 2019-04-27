@@ -27,52 +27,57 @@ class QForm extends Component {
   };
 
   render() {
+    const { majors } = this.props;
+    const majorList = majors.map(major => major.major);
+
     return (
       <form onSubmit={this.handleSubmit}>
-        <div className="form-group">
-          {/* <input
-            className="orm-control"
-            type="select"
-            placeholder="select"
-            name="major"
-            onChange={this.textChangeHandler}
-          /> */}
-          <select
-            type="select"
-            name="major"
-            onChange={this.majorChangeHandler}
-            className="form-control"
-          >
-            <option selected="selected">Select The Major</option>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-          </select>
-        </div>
-        <div className="form-group">
-          <ReactQuill
-            modules={QForm.modules}
-            formats={QForm.formats}
-            name="q_text"
-            placeholder="Body"
-            onChange={this.textChangeHandler}
-          />
-          {/* <input
-            className="form-control"
-            type="text"
-            placeholder="Ask"
-            name="q_text"
-            onChange={this.textChangeHandler}
-          /> */}
-          <div>
-            {/* <Link to="/Qlist"> */}
-            <button type="submit" onClick={() => this.handleSubmit}>
-              post
-            </button>
-            {/* </Link> */}
+        <br /> <br /> <br /> <br />
+        <div className="row">
+          <div className="col-3">
+            <div className="form-group">
+              <select
+                type="select"
+                name="major"
+                onChange={this.majorChangeHandler}
+                className="form-control"
+              >
+                <option selected="selected">Select The Major</option>
+                <option value="1">{majorList[0]}</option>
+                <option value="2">{majorList[1]}</option>
+                <option value="3">{majorList[2]}</option>
+                <option value="4">{majorList[3]}</option>
+                <option value="5">{majorList[4]}</option>
+                <option value="6">{majorList[5]}</option>
+                <option value="7">{majorList[6]}</option>
+                <option value="8">{majorList[7]}</option>
+                <option value="9">{majorList[8]}</option>
+                <option value="10">{majorList[9]}</option>
+                <option value="11">{majorList[10]}</option>
+                <option value="12">{majorList[11]}</option>
+                <option value="13">{majorList[12]}</option>
+                <option value="14">{majorList[13]}</option>
+                <option value="15">{majorList[14]}</option>
+              </select>
+            </div>
           </div>
-          {/* <button type="submit">post</button> */}
+          <div className="col-7">
+            <div className="form-group">
+              <ReactQuill
+                modules={QForm.modules}
+                formats={QForm.formats}
+                name="q_text"
+                placeholder="Body"
+                onChange={this.textChangeHandler}
+              />
+
+              <div>
+                <button type="submit" onClick={() => this.handleSubmit}>
+                  post
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
       </form>
     );
@@ -108,6 +113,12 @@ QForm.formats = [
   "code-block"
 ];
 
+const mapStateToProps = state => {
+  return {
+    majors: state.questions.majors
+  };
+};
+
 const mapDispatchToProps = dispatch => {
   return {
     askQ: (question, history) =>
@@ -116,6 +127,6 @@ const mapDispatchToProps = dispatch => {
 };
 
 export default connect(
-  null,
+  mapStateToProps,
   mapDispatchToProps
 )(QForm);

@@ -36,49 +36,12 @@ import Header from "./Components/Header";
 class App extends Component {
   componentDidMount = async () => {
     await this.props.checkForExpiredToken();
+    this.props.fetchMajors();
   };
 
   render() {
     return (
-      //  <div className="App">
-      //   { <Search /> }
-      // //   {/* <SearchBar /> */}
-      // //   {/* <Qlist /> */}
-      // //   {/* <QForm /> */}
-      // //   <QAnswers />
-      // //   {/* <AnswerForm /> */}
-      //  </div>
-
-      // <div>
-      //   <div className="container-fluid my-4">
-      //     <Switch>
-      //       <BrowserRouter>
-      //         <Route exact path="/Home" component={Home} />
-      //         <Route exact path="/signup" component={RegistrationForm} />
-      //         <Route exact path="/login" component={LoginForm} />
-      //         <Route exact path="/AnswerForm" component={AnswerForm} />
-      //         <Route exact path="/Search" component={Search} />
-      //         <Route exact path="/Qlist" component={Qlist} />
-      //         <Route exact path="/QForm" component={QForm} />
-      //         <Route exact path="/QAnswers" component={QAnswers} />
-      //       </BrowserRouter>
-
-      //     </Switch>
-      //   </div>
-      // </div>
-
-      //  <div className="App">
-      //   { <Search /> }
-      // //   {/* <SearchBar /> */}
-      // //   {/* <Qlist /> */}
-      // //   {/* <QForm /> */}
-      // //   <QAnswers />
-      // //   {/* <AnswerForm /> */}
-      //  </div>
-
       <div>
-        {/* <div className="container-fluid my-4"> */}
-        {/* <Search /> */}
         <div className="content-container">
           <Switch>
             <BrowserRouter>
@@ -113,7 +76,8 @@ const mapStateToProps = state => {
   return {
     user: state.authenticationReducer.user,
     userLoading: state.authenticationReducer.userLoading,
-    questions: state.questions.filteredQuestions
+    questions: state.questions.filteredQuestions,
+    majors: state.questions.majors
   };
 };
 
@@ -121,7 +85,8 @@ const mapDispatchToProps = dispatch => {
   return {
     checkForExpiredToken: () => dispatch(actionCreators.checkForExpiredToken()),
     fetchAnswers: () => dispatch(actionCreators.fetchAnswers()),
-    fetchQ: () => dispatch(actionCreators.fetchQ())
+    fetchQ: () => dispatch(actionCreators.fetchQ()),
+    fetchMajors: () => dispatch(actionCreators.fetchMajors())
   };
 };
 

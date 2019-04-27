@@ -4,16 +4,22 @@ import AnswerForm from "./AnswerForm";
 import * as actionCreators from "../store/actions";
 import { connect } from "react-redux";
 import renderHTML from "react-render-html";
-import loading from "./Loading";
 
 class QDetail extends Component {
+  state = {
+    boolean: false,
+    counter: this.props.counter
+  };
   componentDidMount() {
-    console.log("qid is: ", this.props.match.params.questionID);
     this.props.fetchQDetail(this.props.match.params.questionID);
   }
   componentDidUpdate(prevProps) {
+    if (prevProps.counter !== this.props.counter) {
+      this.setState({ counter: this.props.counter });
+    }
+
     if (
-      this.props.match.params.questoinID !== prevProps.match.params.questoiinID
+      this.props.match.params.questionID !== prevProps.match.params.questionID
     ) {
       this.props.reset();
 
@@ -21,33 +27,54 @@ class QDetail extends Component {
     }
   }
   render() {
+    console.log("Counter", this.state.counter);
     const { question } = this.props;
     const questoinID = this.props.match.params.questionID;
+    const { profile } = this.props;
+    console.log(profile);
     return (
       <div>
         <div className="card w-75">
           <div className="card-body">
-            {/* <h4>{question.q_text}</h4> */}
             <h4>{renderHTML(question.q_text || "")}</h4>
-            {/* <h5 className="card-title" /> */}
             <p className="card-text" />
-            {/* <a className="btn btn-primary">Button</a> */}
             <p className="card-text" />{" "}
-            {/* <Link to="/Search">
-              <AnswerForm />
-              <button type="submit">post</button>{" "}
-            </Link> */}
           </div>
-
-          <div className="col-md-2">
-            <button
-              onClick={() =>
-                this.props.deleteQuestion(questoinID, this.props.history)
-              }
-              className="btn btn-danger"
-            >
-              Remove
-            </button>
+          <div>
+            {profile.is_expert || "" ? (
+              <div>
+                <div className="col-md-2">
+                  <button
+                    onClick={() =>
+                      this.props.deleteQuestion(questoinID, this.props.history)
+                    }
+                    className="btn btn-danger"
+                  >
+                    Remove
+                  </button>
+                </div>
+                <div className="col-md-2">
+                  <button
+                    onClick={async () => {
+                      await this.setState({
+                        boolean: this.state.counter > 0 ? true : false
+                      });
+                      this.props.approveQuestion(
+                        questoinID,
+                        this.state.boolean,
+                        this.props.history
+                      );
+                      this.props.resetCounter();
+                    }}
+                    className="btn btn-danger"
+                  >
+                    Done
+                  </button>
+                </div>
+              </div>
+            ) : (
+              <div> </div>
+            )}
           </div>
         </div>
         <div>
@@ -64,7 +91,9 @@ class QDetail extends Component {
 
 const mapStateToProps = state => {
   return {
-    question: state.questions.question
+    question: state.questions.question,
+    counter: state.questions.counter,
+    profile: state.authenticationReducer.profile
   };
 };
 const mapDispatchToProps = dispatch => {
@@ -73,7 +102,10 @@ const mapDispatchToProps = dispatch => {
       dispatch(actionCreators.deleteQuestion(questionID, history)),
     fetchQDetail: questionID =>
       dispatch(actionCreators.fetchQDetail(questionID)),
-    reset: () => dispatch({ type: "RESET" })
+    reset: () => dispatch({ type: "RESET" }),
+    resetCounter: () => dispatch({ type: "RESET_COUNTER" }),
+    approveQuestion: (questionID, status, history) =>
+      dispatch(actionCreators.approveQuestion(questionID, status, history))
   };
 };
 
