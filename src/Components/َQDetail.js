@@ -11,6 +11,7 @@ class QDetail extends Component {
     counter: this.props.counter
   };
   componentDidMount() {
+    console.log("from componentdidmount", this.props.match.params.questionID);
     this.props.fetchQDetail(this.props.match.params.questionID);
   }
   componentDidUpdate(prevProps) {
@@ -28,6 +29,7 @@ class QDetail extends Component {
   render() {
     console.log("Counter", this.state.counter);
     const { question } = this.props;
+    console.log(question);
     const questoinID = this.props.match.params.questionID;
     const { profile } = this.props;
     console.log(profile);
@@ -40,7 +42,7 @@ class QDetail extends Component {
             <p className="card-text" />{" "}
           </div>
           <div>
-            {profile.is_expert || "" ? (
+            {(profile && profile.is_expert) || "" ? (
               <div>
                 <div className="col-md-2">
                   <button

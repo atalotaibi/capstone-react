@@ -30,7 +30,7 @@ class Answer extends Component {
     return (
       <div className="row">
         <div className="col-2">
-          {profile.is_expert ? (
+          {profile && profile.is_expert ? (
             <div>
               {answer.approved ? (
                 <div className="form-check form-check-inline">
